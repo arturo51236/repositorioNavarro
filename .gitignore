@@ -7,4 +7,5 @@
 /Rubik's Hub/public/bundles/
 /Rubik's Hub/var/
 /Rubik's Hub/vendor/
+/Rubik's Hub/migrations/
 ###< symfony/framework-bundle ###
