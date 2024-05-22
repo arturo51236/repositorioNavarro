@@ -3,6 +3,7 @@
 /Rubik's Hub/.env.local
 /Rubik's Hub/.env.local.php
 /Rubik's Hub/.env.*.local
+/Rubik's Hub/config/secrets/dev/dev.decrypt.private.php
 /Rubik's Hub/config/secrets/prod/prod.decrypt.private.php
 /Rubik's Hub/public/bundles/
 /Rubik's Hub/var/
