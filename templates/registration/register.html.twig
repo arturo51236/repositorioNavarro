@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registro{% endblock %}
+
+{% block javascripts %}
+    {% block importmap %}{{ importmap('registro') }}{% endblock %}
+{% endblock %}
+
+{% block body %}
+    {% for flash_error in app.flashes('error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+
+    <h1>Registro</h1>
+
+    {{ form_errors(registrationForm) }}
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.nombre, {
+            label: 'Nombre: '
+        }) }}
+        {{ form_row(registrationForm.apellidos, {
+            label: 'Apellidos: '
+        }) }}
+        {{ form_row(registrationForm.dni, {
+            label: 'Dni: '
+        }) }}
+        {{ form_row(registrationForm.email, {
+            label: 'Correo electrónico: '
+        }) }}
+        {{ form_row(registrationForm.password, {
+            label: 'Contraseña: '
+        }) }}
+        {{ form_row(registrationForm.pais, {
+            label: 'País: ',
+            id: 'selector-pais'
+        }) }}
+        {{ form_row(registrationForm.provincia, {
+            label: 'Provincia: ',
+            id: 'selector-provincia'
+        }) }}
+        {{ form_row(registrationForm.cp, {
+            label: 'Código postal: ',
+        }) }}
+        {{ form_row(registrationForm.direccion, {
+            label: 'Dirección: ',
+        }) }}
+        {{ form_row(registrationForm.foto, {
+            label: 'Foto de perfil: '
+        }) }}
+        {{ form_row(registrationForm.aceptarTerminosCondiciones, {
+            label: 'Acepto los términos y condiciones'
+        }) }}
+
+        <button type="submit" class="btn">Confirmar registro</button>
+    {{ form_end(registrationForm) }}
+{% endblock %}

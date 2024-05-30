@@ -4,11 +4,13 @@ namespace App\Entity;
 
 use App\Repository\UsuarioRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UsuarioRepository::class)]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_UUID', fields: ['uuid'])]
+#[UniqueEntity(fields: ['email'], message: 'Ya existe una cuenta con este email')]
 class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -37,14 +39,11 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 100, nullable: true)]
     private ?string $apellidos = null;
 
-    #[ORM\Column(length: 9, nullable: true)]
+    #[ORM\Column(length: 9)]
     private ?string $dni = null;
 
     #[ORM\Column(length: 255)]
     private ?string $email = null;
-
-    #[ORM\Column]
-    private ?bool $registro_verificado = null;
 
     #[ORM\Column(length: 100, nullable: true)]
     private ?string $foto = null;
@@ -53,13 +52,16 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $pais = null;
 
     #[ORM\Column(length: 100, nullable: true)]
-    private ?string $localidad = null;
+    private ?string $provincia = null;
 
     #[ORM\Column(nullable: true)]
     private ?int $cp = null;
 
     #[ORM\Column(length: 100, nullable: true)]
     private ?string $direccion = null;
+
+    #[ORM\Column(type: 'boolean')]
+    private $isVerified = false;
 
     public function getId(): ?int
     {
@@ -132,7 +134,7 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
     public function eraseCredentials(): void
     {
         // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
+        // $this->pass = null;
     }
 
     public function getNombre(): ?string
@@ -183,18 +185,6 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function isRegistroVerificado(): ?bool
-    {
-        return $this->registro_verificado;
-    }
-
-    public function setRegistroVerificado(bool $registro_verificado): static
-    {
-        $this->registro_verificado = $registro_verificado;
-
-        return $this;
-    }
-
     public function getFoto(): ?string
     {
         return $this->foto;
@@ -219,14 +209,14 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getLocalidad(): ?string
+    public function getProvincia(): ?string
     {
-        return $this->localidad;
+        return $this->provincia;
     }
 
-    public function setLocalidad(?string $localidad): static
+    public function setProvincia(?string $provincia): static
     {
-        $this->localidad = $localidad;
+        $this->provincia = $provincia;
 
         return $this;
     }
@@ -251,6 +241,18 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
     public function setDireccion(?string $direccion): static
     {
         $this->direccion = $direccion;
+
+        return $this;
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setVerified(bool $isVerified): static
+    {
+        $this->isVerified = $isVerified;
 
         return $this;
     }

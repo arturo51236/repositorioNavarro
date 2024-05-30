@@ -1,0 +1,978 @@
+[
+    {
+        "Country": "Afghanistan",
+        "Alpha-2 Code": "AF"
+    },
+    {
+        "Country": "Albania",
+        "Alpha-2 Code": "AL"
+    },
+    {
+        "Country": "Algeria",
+        "Alpha-2 Code": "DZ"
+    },
+    {
+        "Country": "American Samoa",
+        "Alpha-2 Code": "AS"
+    },
+    {
+        "Country": "Andorra",
+        "Alpha-2 Code": "AD"
+    },
+    {
+        "Country": "Angola",
+        "Alpha-2 Code": "AO"
+    },
+    {
+        "Country": "Anguilla",
+        "Alpha-2 Code": "AI"
+    },
+    {
+        "Country": "Antarctica",
+        "Alpha-2 Code": "AQ"
+    },
+    {
+        "Country": "Antigua and Barbuda",
+        "Alpha-2 Code": "AG"
+    },
+    {
+        "Country": "Argentina",
+        "Alpha-2 Code": "AR"
+    },
+    {
+        "Country": "Armenia",
+        "Alpha-2 Code": "AM"
+    },
+    {
+        "Country": "Aruba",
+        "Alpha-2 Code": "AW"
+    },
+    {
+        "Country": "Australia",
+        "Alpha-2 Code": "AU"
+    },
+    {
+        "Country": "Austria",
+        "Alpha-2 Code": "AT"
+    },
+    {
+        "Country": "Azerbaijan",
+        "Alpha-2 Code": "AZ"
+    },
+    {
+        "Country": "Bahamas",
+        "Alpha-2 Code": "BS"
+    },
+    {
+        "Country": "Bahrain",
+        "Alpha-2 Code": "BH"
+    },
+    {
+        "Country": "Bangladesh",
+        "Alpha-2 Code": "BD"
+    },
+    {
+        "Country": "Barbados",
+        "Alpha-2 Code": "BB"
+    },
+    {
+        "Country": "Belarus",
+        "Alpha-2 Code": "BY"
+    },
+    {
+        "Country": "Belgium",
+        "Alpha-2 Code": "BE"
+    },
+    {
+        "Country": "Belize",
+        "Alpha-2 Code": "BZ"
+    },
+    {
+        "Country": "Benin",
+        "Alpha-2 Code": "BJ"
+    },
+    {
+        "Country": "Bermuda",
+        "Alpha-2 Code": "BM"
+    },
+    {
+        "Country": "Bhutan",
+        "Alpha-2 Code": "BT"
+    },
+    {
+        "Country": "Bolivia",
+        "Alpha-2 Code": "BO"
+    },
+    {
+        "Country": "Bosnia and Herzegovina",
+        "Alpha-2 Code": "BA"
+    },
+    {
+        "Country": "Botswana",
+        "Alpha-2 Code": "BW"
+    },
+    {
+        "Country": "Bouvet Island",
+        "Alpha-2 Code": "BV"
+    },
+    {
+        "Country": "Brazil",
+        "Alpha-2 Code": "BR"
+    },
+    {
+        "Country": "British Indian Ocean Territory",
+        "Alpha-2 Code": "IO"
+    },
+    {
+        "Country": "Brunei",
+        "Alpha-2 Code": "BN"
+    },
+    {
+        "Country": "Bulgaria",
+        "Alpha-2 Code": "BG"
+    },
+    {
+        "Country": "Burkina Faso",
+        "Alpha-2 Code": "BF"
+    },
+    {
+        "Country": "Burundi",
+        "Alpha-2 Code": "BI"
+    },
+    {
+        "Country": "Cambodia",
+        "Alpha-2 Code": "KH"
+    },
+    {
+        "Country": "Cameroon",
+        "Alpha-2 Code": "CM"
+    },
+    {
+        "Country": "Canada",
+        "Alpha-2 Code": "CA"
+    },
+    {
+        "Country": "Cape Verde",
+        "Alpha-2 Code": "CV"
+    },
+    {
+        "Country": "Cayman Islands",
+        "Alpha-2 Code": "KY"
+    },
+    {
+        "Country": "Central African Republic",
+        "Alpha-2 Code": "CF"
+    },
+    {
+        "Country": "Chad",
+        "Alpha-2 Code": "TD"
+    },
+    {
+        "Country": "Chile",
+        "Alpha-2 Code": "CL"
+    },
+    {
+        "Country": "China",
+        "Alpha-2 Code": "CN"
+    },
+    {
+        "Country": "Christmas Island",
+        "Alpha-2 Code": "CX"
+    },
+    {
+        "Country": "Cocos (Keeling) Islands",
+        "Alpha-2 Code": "CC"
+    },
+    {
+        "Country": "Colombia",
+        "Alpha-2 Code": "CO"
+    },
+    {
+        "Country": "Comoros",
+        "Alpha-2 Code": "KM"
+    },
+    {
+        "Country": "Congo",
+        "Alpha-2 Code": "CG"
+    },
+    {
+        "Country": "Congo, the Democratic Republic of the",
+        "Alpha-2 Code": "CD"
+    },
+    {
+        "Country": "Cook Islands",
+        "Alpha-2 Code": "CK"
+    },
+    {
+        "Country": "Costa Rica",
+        "Alpha-2 Code": "CR"
+    },
+    {
+        "Country": "Ivory Coast",
+        "Alpha-2 Code": "CI"
+    },
+    {
+        "Country": "Croatia",
+        "Alpha-2 Code": "HR"
+    },
+    {
+        "Country": "Cuba",
+        "Alpha-2 Code": "CU"
+    },
+    {
+        "Country": "Cyprus",
+        "Alpha-2 Code": "CY"
+    },
+    {
+        "Country": "Czech Republic",
+        "Alpha-2 Code": "CZ"
+    },
+    {
+        "Country": "Denmark",
+        "Alpha-2 Code": "DK"
+    },
+    {
+        "Country": "Djibouti",
+        "Alpha-2 Code": "DJ"
+    },
+    {
+        "Country": "Dominica",
+        "Alpha-2 Code": "DM"
+    },
+    {
+        "Country": "Dominican Republic",
+        "Alpha-2 Code": "DO"
+    },
+    {
+        "Country": "Ecuador",
+        "Alpha-2 Code": "EC"
+    },
+    {
+        "Country": "Egypt",
+        "Alpha-2 Code": "EG"
+    },
+    {
+        "Country": "El Salvador",
+        "Alpha-2 Code": "SV"
+    },
+    {
+        "Country": "Equatorial Guinea",
+        "Alpha-2 Code": "GQ"
+    },
+    {
+        "Country": "Eritrea",
+        "Alpha-2 Code": "ER"
+    },
+    {
+        "Country": "Estonia",
+        "Alpha-2 Code": "EE"
+    },
+    {
+        "Country": "Ethiopia",
+        "Alpha-2 Code": "ET"
+    },
+    {
+        "Country": "Falkland Islands (Malvinas)",
+        "Alpha-2 Code": "FK"
+    },
+    {
+        "Country": "Faroe Islands",
+        "Alpha-2 Code": "FO"
+    },
+    {
+        "Country": "Fiji",
+        "Alpha-2 Code": "FJ"
+    },
+    {
+        "Country": "Finland",
+        "Alpha-2 Code": "FI"
+    },
+    {
+        "Country": "France",
+        "Alpha-2 Code": "FR"
+    },
+    {
+        "Country": "French Guiana",
+        "Alpha-2 Code": "GF"
+    },
+    {
+        "Country": "French Polynesia",
+        "Alpha-2 Code": "PF"
+    },
+    {
+        "Country": "French Southern Territories",
+        "Alpha-2 Code": "TF"
+    },
+    {
+        "Country": "Gabon",
+        "Alpha-2 Code": "GA"
+    },
+    {
+        "Country": "Gambia",
+        "Alpha-2 Code": "GM"
+    },
+    {
+        "Country": "Georgia",
+        "Alpha-2 Code": "GE"
+    },
+    {
+        "Country": "Germany",
+        "Alpha-2 Code": "DE"
+    },
+    {
+        "Country": "Ghana",
+        "Alpha-2 Code": "GH"
+    },
+    {
+        "Country": "Gibraltar",
+        "Alpha-2 Code": "GI"
+    },
+    {
+        "Country": "Greece",
+        "Alpha-2 Code": "GR"
+    },
+    {
+        "Country": "Greenland",
+        "Alpha-2 Code": "GL"
+    },
+    {
+        "Country": "Grenada",
+        "Alpha-2 Code": "GD"
+    },
+    {
+        "Country": "Guadeloupe",
+        "Alpha-2 Code": "GP"
+    },
+    {
+        "Country": "Guam",
+        "Alpha-2 Code": "GU"
+    },
+    {
+        "Country": "Guatemala",
+        "Alpha-2 Code": "GT"
+    },
+    {
+        "Country": "Guernsey",
+        "Alpha-2 Code": "GG"
+    },
+    {
+        "Country": "Guinea",
+        "Alpha-2 Code": "GN"
+    },
+    {
+        "Country": "Guinea-Bissau",
+        "Alpha-2 Code": "GW"
+    },
+    {
+        "Country": "Guyana",
+        "Alpha-2 Code": "GY"
+    },
+    {
+        "Country": "Haiti",
+        "Alpha-2 Code": "HT"
+    },
+    {
+        "Country": "Heard Island and McDonald Islands",
+        "Alpha-2 Code": "HM"
+    },
+    {
+        "Country": "Holy See (Vatican City State)",
+        "Alpha-2 Code": "VA"
+    },
+    {
+        "Country": "Honduras",
+        "Alpha-2 Code": "HN"
+    },
+    {
+        "Country": "Hong Kong",
+        "Alpha-2 Code": "HK"
+    },
+    {
+        "Country": "Hungary",
+        "Alpha-2 Code": "HU"
+    },
+    {
+        "Country": "Iceland",
+        "Alpha-2 Code": "IS"
+    },
+    {
+        "Country": "India",
+        "Alpha-2 Code": "IN"
+    },
+    {
+        "Country": "Indonesia",
+        "Alpha-2 Code": "ID"
+    },
+    {
+        "Country": "Iran, Islamic Republic of",
+        "Alpha-2 Code": "IR"
+    },
+    {
+        "Country": "Iraq",
+        "Alpha-2 Code": "IQ"
+    },
+    {
+        "Country": "Ireland",
+        "Alpha-2 Code": "IE"
+    },
+    {
+        "Country": "Isle of Man",
+        "Alpha-2 Code": "IM"
+    },
+    {
+        "Country": "Israel",
+        "Alpha-2 Code": "IL"
+    },
+    {
+        "Country": "Italy",
+        "Alpha-2 Code": "IT"
+    },
+    {
+        "Country": "Jamaica",
+        "Alpha-2 Code": "JM"
+    },
+    {
+        "Country": "Japan",
+        "Alpha-2 Code": "JP"
+    },
+    {
+        "Country": "Jersey",
+        "Alpha-2 Code": "JE"
+    },
+    {
+        "Country": "Jordan",
+        "Alpha-2 Code": "JO"
+    },
+    {
+        "Country": "Kazakhstan",
+        "Alpha-2 Code": "KZ"
+    },
+    {
+        "Country": "Kenya",
+        "Alpha-2 Code": "KE"
+    },
+    {
+        "Country": "Kiribati",
+        "Alpha-2 Code": "KI"
+    },
+    {
+        "Country": "Korea, Democratic People's Republic of",
+        "Alpha-2 Code": "KP"
+    },
+    {
+        "Country": "South Korea",
+        "Alpha-2 Code": "KR"
+    },
+    {
+        "Country": "Kuwait",
+        "Alpha-2 Code": "KW"
+    },
+    {
+        "Country": "Kyrgyzstan",
+        "Alpha-2 Code": "KG"
+    },
+    {
+        "Country": "Lao People's Democratic Republic",
+        "Alpha-2 Code": "LA"
+    },
+    {
+        "Country": "Latvia",
+        "Alpha-2 Code": "LV"
+    },
+    {
+        "Country": "Lebanon",
+        "Alpha-2 Code": "LB"
+    },
+    {
+        "Country": "Lesotho",
+        "Alpha-2 Code": "LS"
+    },
+    {
+        "Country": "Liberia",
+        "Alpha-2 Code": "LR"
+    },
+    {
+        "Country": "Libya",
+        "Alpha-2 Code": "LY"
+    },
+    {
+        "Country": "Liechtenstein",
+        "Alpha-2 Code": "LI"
+    },
+    {
+        "Country": "Lithuania",
+        "Alpha-2 Code": "LT"
+    },
+    {
+        "Country": "Luxembourg",
+        "Alpha-2 Code": "LU"
+    },
+    {
+        "Country": "Macao",
+        "Alpha-2 Code": "MO"
+    },
+    {
+        "Country": "Macedonia, the former Yugoslav Republic of",
+        "Alpha-2 Code": "MK"
+    },
+    {
+        "Country": "Madagascar",
+        "Alpha-2 Code": "MG"
+    },
+    {
+        "Country": "Malawi",
+        "Alpha-2 Code": "MW"
+    },
+    {
+        "Country": "Malaysia",
+        "Alpha-2 Code": "MY"
+    },
+    {
+        "Country": "Maldives",
+        "Alpha-2 Code": "MV"
+    },
+    {
+        "Country": "Mali",
+        "Alpha-2 Code": "ML"
+    },
+    {
+        "Country": "Malta",
+        "Alpha-2 Code": "MT"
+    },
+    {
+        "Country": "Marshall Islands",
+        "Alpha-2 Code": "MH"
+    },
+    {
+        "Country": "Martinique",
+        "Alpha-2 Code": "MQ"
+    },
+    {
+        "Country": "Mauritania",
+        "Alpha-2 Code": "MR"
+    },
+    {
+        "Country": "Mauritius",
+        "Alpha-2 Code": "MU"
+    },
+    {
+        "Country": "Mayotte",
+        "Alpha-2 Code": "YT"
+    },
+    {
+        "Country": "Mexico",
+        "Alpha-2 Code": "MX"
+    },
+    {
+        "Country": "Micronesia, Federated States of",
+        "Alpha-2 Code": "FM"
+    },
+    {
+        "Country": "Moldova, Republic of",
+        "Alpha-2 Code": "MD"
+    },
+    {
+        "Country": "Monaco",
+        "Alpha-2 Code": "MC"
+    },
+    {
+        "Country": "Mongolia",
+        "Alpha-2 Code": "MN"
+    },
+    {
+        "Country": "Montenegro",
+        "Alpha-2 Code": "ME"
+    },
+    {
+        "Country": "Montserrat",
+        "Alpha-2 Code": "MS"
+    },
+    {
+        "Country": "Morocco",
+        "Alpha-2 Code": "MA"
+    },
+    {
+        "Country": "Mozambique",
+        "Alpha-2 Code": "MZ"
+    },
+    {
+        "Country": "Myanmar",
+        "Alpha-2 Code": "MM"
+    },
+    {
+        "Country": "Namibia",
+        "Alpha-2 Code": "NA"
+    },
+    {
+        "Country": "Nauru",
+        "Alpha-2 Code": "NR"
+    },
+    {
+        "Country": "Nepal",
+        "Alpha-2 Code": "NP"
+    },
+    {
+        "Country": "Netherlands",
+        "Alpha-2 Code": "NL"
+    },
+    {
+        "Country": "Netherlands Antilles",
+        "Alpha-2 Code": "AN"
+    },
+    {
+        "Country": "New Caledonia",
+        "Alpha-2 Code": "NC"
+    },
+    {
+        "Country": "New Zealand",
+        "Alpha-2 Code": "NZ"
+    },
+    {
+        "Country": "Nicaragua",
+        "Alpha-2 Code": "NI"
+    },
+    {
+        "Country": "Niger",
+        "Alpha-2 Code": "NE"
+    },
+    {
+        "Country": "Nigeria",
+        "Alpha-2 Code": "NG"
+    },
+    {
+        "Country": "Niue",
+        "Alpha-2 Code": "NU"
+    },
+    {
+        "Country": "Norfolk Island",
+        "Alpha-2 Code": "NF"
+    },
+    {
+        "Country": "Northern Mariana Islands",
+        "Alpha-2 Code": "MP"
+    },
+    {
+        "Country": "Norway",
+        "Alpha-2 Code": "NO"
+    },
+    {
+        "Country": "Oman",
+        "Alpha-2 Code": "OM"
+    },
+    {
+        "Country": "Pakistan",
+        "Alpha-2 Code": "PK"
+    },
+    {
+        "Country": "Palau",
+        "Alpha-2 Code": "PW"
+    },
+    {
+        "Country": "Palestinian Territory, Occupied",
+        "Alpha-2 Code": "PS"
+    },
+    {
+        "Country": "Panama",
+        "Alpha-2 Code": "PA"
+    },
+    {
+        "Country": "Papua New Guinea",
+        "Alpha-2 Code": "PG"
+    },
+    {
+        "Country": "Paraguay",
+        "Alpha-2 Code": "PY"
+    },
+    {
+        "Country": "Peru",
+        "Alpha-2 Code": "PE"
+    },
+    {
+        "Country": "Philippines",
+        "Alpha-2 Code": "PH"
+    },
+    {
+        "Country": "Pitcairn",
+        "Alpha-2 Code": "PN"
+    },
+    {
+        "Country": "Poland",
+        "Alpha-2 Code": "PL"
+    },
+    {
+        "Country": "Portugal",
+        "Alpha-2 Code": "PT"
+    },
+    {
+        "Country": "Puerto Rico",
+        "Alpha-2 Code": "PR"
+    },
+    {
+        "Country": "Qatar",
+        "Alpha-2 Code": "QA"
+    },
+    {
+        "Country": "Réunion",
+        "Alpha-2 Code": "RE"
+    },
+    {
+        "Country": "Romania",
+        "Alpha-2 Code": "RO"
+    },
+    {
+        "Country": "Russia",
+        "Alpha-2 Code": "RU"
+    },
+    {
+        "Country": "Rwanda",
+        "Alpha-2 Code": "RW"
+    },
+    {
+        "Country": "Saint Helena, Ascension and Tristan da Cunha",
+        "Alpha-2 Code": "SH"
+    },
+    {
+        "Country": "Saint Kitts and Nevis",
+        "Alpha-2 Code": "KN"
+    },
+    {
+        "Country": "Saint Lucia",
+        "Alpha-2 Code": "LC"
+    },
+    {
+        "Country": "Saint Pierre and Miquelon",
+        "Alpha-2 Code": "PM"
+    },
+    {
+        "Country": "Saint Vincent and the Grenadines",
+        "Alpha-2 Code": "VC"
+    },
+    {
+        "Country": "Samoa",
+        "Alpha-2 Code": "WS"
+    },
+    {
+        "Country": "San Marino",
+        "Alpha-2 Code": "SM"
+    },
+    {
+        "Country": "Sao Tome and Principe",
+        "Alpha-2 Code": "ST"
+    },
+    {
+        "Country": "Saudi Arabia",
+        "Alpha-2 Code": "SA"
+    },
+    {
+        "Country": "Senegal",
+        "Alpha-2 Code": "SN"
+    },
+    {
+        "Country": "Serbia",
+        "Alpha-2 Code": "RS"
+    },
+    {
+        "Country": "Seychelles",
+        "Alpha-2 Code": "SC"
+    },
+    {
+        "Country": "Sierra Leone",
+        "Alpha-2 Code": "SL"
+    },
+    {
+        "Country": "Singapore",
+        "Alpha-2 Code": "SG"
+    },
+    {
+        "Country": "Slovakia",
+        "Alpha-2 Code": "SK"
+    },
+    {
+        "Country": "Slovenia",
+        "Alpha-2 Code": "SI"
+    },
+    {
+        "Country": "Solomon Islands",
+        "Alpha-2 Code": "SB"
+    },
+    {
+        "Country": "Somalia",
+        "Alpha-2 Code": "SO"
+    },
+    {
+        "Country": "South Africa",
+        "Alpha-2 Code": "ZA"
+    },
+    {
+        "Country": "South Georgia and the South Sandwich Islands",
+        "Alpha-2 Code": "GS"
+    },
+    {
+        "Country": "South Sudan",
+        "Alpha-2 Code": "SS"
+    },
+    {
+        "Country": "Spain",
+        "Alpha-2 Code": "ES"
+    },
+    {
+        "Country": "Sri Lanka",
+        "Alpha-2 Code": "LK"
+    },
+    {
+        "Country": "Sudan",
+        "Alpha-2 Code": "SD"
+    },
+    {
+        "Country": "Suriname",
+        "Alpha-2 Code": "SR"
+    },
+    {
+        "Country": "Svalbard and Jan Mayen",
+        "Alpha-2 Code": "SJ"
+    },
+    {
+        "Country": "Swaziland",
+        "Alpha-2 Code": "SZ"
+    },
+    {
+        "Country": "Sweden",
+        "Alpha-2 Code": "SE"
+    },
+    {
+        "Country": "Switzerland",
+        "Alpha-2 Code": "CH"
+    },
+    {
+        "Country": "Syrian Arab Republic",
+        "Alpha-2 Code": "SY"
+    },
+    {
+        "Country": "Taiwan",
+        "Alpha-2 Code": "TW"
+    },
+    {
+        "Country": "Tajikistan",
+        "Alpha-2 Code": "TJ"
+    },
+    {
+        "Country": "Tanzania, United Republic of",
+        "Alpha-2 Code": "TZ"
+    },
+    {
+        "Country": "Thailand",
+        "Alpha-2 Code": "TH"
+    },
+    {
+        "Country": "Timor-Leste",
+        "Alpha-2 Code": "TL"
+    },
+    {
+        "Country": "Togo",
+        "Alpha-2 Code": "TG"
+    },
+    {
+        "Country": "Tokelau",
+        "Alpha-2 Code": "TK"
+    },
+    {
+        "Country": "Tonga",
+        "Alpha-2 Code": "TO"
+    },
+    {
+        "Country": "Trinidad and Tobago",
+        "Alpha-2 Code": "TT"
+    },
+    {
+        "Country": "Tunisia",
+        "Alpha-2 Code": "TN"
+    },
+    {
+        "Country": "Turkey",
+        "Alpha-2 Code": "TR"
+    },
+    {
+        "Country": "Turkmenistan",
+        "Alpha-2 Code": "TM"
+    },
+    {
+        "Country": "Turks and Caicos Islands",
+        "Alpha-2 Code": "TC"
+    },
+    {
+        "Country": "Tuvalu",
+        "Alpha-2 Code": "TV"
+    },
+    {
+        "Country": "Uganda",
+        "Alpha-2 Code": "UG"
+    },
+    {
+        "Country": "Ukraine",
+        "Alpha-2 Code": "UA"
+    },
+    {
+        "Country": "United Arab Emirates",
+        "Alpha-2 Code": "AE"
+    },
+    {
+        "Country": "United Kingdom",
+        "Alpha-2 Code": "GB"
+    },
+    {
+        "Country": "United States",
+        "Alpha-2 Code": "US"
+    },
+    {
+        "Country": "United States Minor Outlying Islands",
+        "Alpha-2 Code": "UM"
+    },
+    {
+        "Country": "Uruguay",
+        "Alpha-2 Code": "UY"
+    },
+    {
+        "Country": "Uzbekistan",
+        "Alpha-2 Code": "UZ"
+    },
+    {
+        "Country": "Vanuatu",
+        "Alpha-2 Code": "VU"
+    },
+    {
+        "Country": "Venezuela",
+        "Alpha-2 Code": "VE"
+    },
+    {
+        "Country": "Vietnam",
+        "Alpha-2 Code": "VN"
+    },
+    {
+        "Country": "Virgin Islands, British",
+        "Alpha-2 Code": "VG"
+    },
+    {
+        "Country": "Virgin Islands, U.S.",
+        "Alpha-2 Code": "VI"
+    },
+    {
+        "Country": "Wallis and Futuna",
+        "Alpha-2 Code": "WF"
+    },
+    {
+        "Country": "Western Sahara",
+        "Alpha-2 Code": "EH"
+    },
+    {
+        "Country": "Yemen",
+        "Alpha-2 Code": "YE"
+    },
+    {
+        "Country": "Zambia",
+        "Alpha-2 Code": "ZM"
+    },
+    {
+        "Country": "Zimbabwe",
+        "Alpha-2 Code": "ZW"
+    }
+]
