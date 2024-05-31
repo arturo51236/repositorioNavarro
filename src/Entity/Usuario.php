@@ -10,7 +10,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UsuarioRepository::class)]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_UUID', fields: ['uuid'])]
-#[UniqueEntity(fields: ['email'], message: 'Ya existe una cuenta con este email')]
+#[UniqueEntity(fields: ['email'], message: 'Ya existe una cuenta con este email.')]
 class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -87,7 +87,11 @@ class Usuario implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUserIdentifier(): string
     {
-        return (string) $this->uuid;
+        if (empty($this->nombre) || empty($this->apellidos)) {
+            return (string) $this->email;
+        } else {
+            return (string) $this->nombre . " " . $this->apellidos;
+        }
     }
 
     /**
