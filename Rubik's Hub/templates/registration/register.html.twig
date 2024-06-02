@@ -3,7 +3,10 @@
 {% block title %}Registro{% endblock %}
 
 {% block javascripts %}
-    {% block importmap %}{{ importmap('registro') }}{% endblock %}
+    {% block importmap %}
+        {{ importmap('app') }}
+        {{ importmap('registro') }}
+    {% endblock %}
 {% endblock %}
 
 {% block body %}
@@ -52,6 +55,6 @@
             label: 'Acepto los términos y condiciones'
         }) }}
 
-        <button type="submit" class="btn">Confirmar registro</button>
+        <button type="submit" class="text-white bg-blue-700 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Confirmar registro</button>
     {{ form_end(registrationForm) }}
 {% endblock %}
