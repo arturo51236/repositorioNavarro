@@ -12,6 +12,10 @@
  * The "importmap:require" command can be used to add new entries to this file.
  */
 return [
+    'app' => [
+        'path' => './assets/app.js',
+        'entrypoint' => true,
+    ],
     'registro' => [
         'path' => './assets/registro.js',
         'entrypoint' => true,
@@ -24,6 +28,19 @@ return [
     ],
     'select2/dist/css/select2.min.css' => [
         'version' => '4.1.0-rc.0',
+        'type' => 'css',
+    ],
+    'tailwind' => [
+        'version' => '4.0.0',
+    ],
+    'flowbite' => [
+        'version' => '2.3.0',
+    ],
+    '@popperjs/core' => [
+        'version' => '2.11.8',
+    ],
+    'flowbite/dist/flowbite.min.css' => [
+        'version' => '2.3.0',
         'type' => 'css',
     ],
 ];

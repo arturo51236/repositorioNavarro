@@ -9,5 +9,6 @@ public/bundles/
 public/uploads/
 var/
 vendor/
+node_modules/
 migrations/
 ###< symfony/framework-bundle ###
