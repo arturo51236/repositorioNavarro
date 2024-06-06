@@ -62,12 +62,12 @@
   {
     "parent_code": "04",
     "code": "07",
-    "label": "Balears, Illes"
+    "label": "Illes Balears"
   },
   {
     "parent_code": "05",
     "code": "35",
-    "label": "Palmas, Las"
+    "label": "Las Palmas"
   },
   {
     "parent_code": "05",
@@ -197,7 +197,7 @@
   {
     "parent_code": "12",
     "code": "15",
-    "label": "Coruña, A"
+    "label": "A Coruña"
   },
   {
     "parent_code": "12",
@@ -247,7 +247,7 @@
   {
     "parent_code": "17",
     "code": "26",
-    "label": "Rioja, La"
+    "label": "La Rioja"
   },
   {
     "parent_code": "18",

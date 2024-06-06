@@ -20,6 +20,10 @@ return [
         'path' => './assets/registro.js',
         'entrypoint' => true,
     ],
+    'global' => [
+        'path' => './assets/global.js',
+        'entrypoint' => true,
+    ],
     'jquery' => [
         'version' => '3.7.1',
     ],

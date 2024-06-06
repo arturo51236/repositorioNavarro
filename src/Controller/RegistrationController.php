@@ -70,20 +70,24 @@ class RegistrationController extends AbstractController
             );
 
             $foto = $form->get('foto')->getData();
-            $fotoNuevoNombre = uniqid(true).'.'.$foto->guessExtension();
 
-            try {
-                $foto->move(
-                    $this->getParameter('directorio_uploads_usuarios'),
-                    $fotoNuevoNombre
-                );
-            } catch (FileException $ex) {
-                $this->addFlash('error', 'Error al guardar la foto de perfil');
+            if ($foto != null) {
+                $fotoNuevoNombre = uniqid(true) . '.' . $foto->guessExtension();
 
-                return $this->redirectToRoute('registro');
+                try {
+                    $foto->move(
+                        $this->getParameter('directorio_uploads_usuarios'),
+                        $fotoNuevoNombre
+                    );
+                } catch (FileException $ex) {
+                    $this->addFlash('error', 'Error al guardar la foto de perfil');
+    
+                    return $this->redirectToRoute('registro');
+                }
+    
+                $user->setFoto($fotoNuevoNombre);
             }
 
-            $user->setFoto($fotoNuevoNombre);
             $user->setPais($form->get('pais')->getData());
             $user->setProvincia($form->get('provincia')->getData());
             $user->setCp($form->get('cp')->getData());
@@ -138,6 +142,6 @@ class RegistrationController extends AbstractController
         // @TODO Change the redirect on success and handle or remove the flash message in your templates
         $this->addFlash('success', 'Tu cuenta de usuario se ha verificado correctamente.');
 
-        return $this->redirectToRoute('registro');
+        return $this->redirectToRoute('/');
     }
 }
