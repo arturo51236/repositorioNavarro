@@ -1,7 +1,9 @@
+import './app.js';
 import './lib/select2.js';
 import './vendor/select2/dist/css/select2.min.css';
 
 $(function() {
+    $('#selector-pais').val('ES');
     $('#selector-pais').select2({
         placeholder: 'Selecciona un país'
     });
