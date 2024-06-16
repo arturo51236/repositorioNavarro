@@ -39,6 +39,9 @@ class Producto
     #[ORM\JoinColumn(nullable: false)]
     private ?Fabricante $fabricante = null;
 
+    #[ORM\Column]
+    private ?bool $diseno_propio = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -136,6 +139,18 @@ class Producto
     public function setFabricante(?Fabricante $fabricante): static
     {
         $this->fabricante = $fabricante;
+
+        return $this;
+    }
+
+    public function isDisenoPropio(): ?bool
+    {
+        return $this->diseno_propio;
+    }
+
+    public function setDisenoPropio(bool $diseno_propio): static
+    {
+        $this->diseno_propio = $diseno_propio;
 
         return $this;
     }

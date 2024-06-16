@@ -22,6 +22,9 @@ class Fabricante
     #[ORM\Column(length: 100, nullable: true)]
     private ?string $foto = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $descripcion = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class Fabricante
     public function setFoto(?string $foto): static
     {
         $this->foto = $foto;
+
+        return $this;
+    }
+
+    public function getDescripcion(): ?string
+    {
+        return $this->descripcion;
+    }
+
+    public function setDescripcion(string $descripcion): static
+    {
+        $this->descripcion = $descripcion;
 
         return $this;
     }

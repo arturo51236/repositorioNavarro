@@ -24,7 +24,7 @@ class Acceso
     private ?string $resultado = null;
 
     #[ORM\ManyToOne]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Usuario $usuario = null;
 
     public function getId(): ?int

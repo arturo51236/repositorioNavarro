@@ -1,11 +1,65 @@
-<h1>Hi! Please confirm your email!</h1>
-
-<p>
-    Please confirm your email address by clicking the following link: <br><br>
-    <a href="{{ signedUrl|raw }}">Confirm my Email</a>.
-    This link will expire in {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
-</p>
-
-<p>
-    Cheers!
-</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de correo - Rubik's Hub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #E0E7FF;
+            color: #1E3A8A;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #FFFFFF;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .header {
+            background-color: #4338CA;
+            padding: 10px 0;
+            border-radius: 20px;
+            color: #FFFFFF;
+        }
+        .button {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 15px 25px;
+            font-size: 16px;
+            color: #FFFFFF;
+            background-color: #4338CA;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #4F46E5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>¡Confirma tu correo electrónico!</h1>
+        </div>
+        <p>
+            Para completar el proceso de registro en <strong>Rubik's Hub</strong>, por favor confirma tu dirección de correo electrónico haciendo clic en el siguiente enlace:
+        </p>
+        <a href="{{ signedUrl|raw }}" class="button">Confirmar mi correo</a>
+        <p>
+            Este enlace expirará en {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
+        </p>
+        <div class="footer">
+            <p>¡Gracias por unirte a nuestra comunidad!</p>
+            <p>El equipo de Rubik's Hub</p>
+        </div>
+    </div>
+</body>
+</html>

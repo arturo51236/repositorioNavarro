@@ -119,7 +119,7 @@ class RegistrationFormType extends AbstractType
                 'constraints' => [
                     new File([
                         'maxSize' => '3072k',
-                        'maxSizeMessage' => 'La foto introducida supera el limite de tamaño (3mb).',
+                        'maxSizeMessage' => 'La foto introducida supera el limite de tamaño (6mb).',
                         'mimeTypes' => [
                             'image/jpeg',
                             'image/jpg',

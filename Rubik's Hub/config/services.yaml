@@ -6,6 +6,9 @@
 parameters:
     env(DATABASE_URL): 'mysql://%env(DATABASE_USER)%:%env(DATABASE_PASSWORD)%@%env(DATABASE_HOST)%/%env(DATABASE_NAME)%?serverVersion=%env(DATABASE_INFO)%&charset=utf8mb4'
     directorio_uploads_usuarios: '%kernel.project_dir%/public/uploads/usuarios'
+    directorio_uploads_categorias: '%kernel.project_dir%/public/uploads/categorias'
+    directorio_uploads_fabricantes: '%kernel.project_dir%/public/uploads/fabricantes'
+    directorio_uploads_productos: '%kernel.project_dir%/public/uploads/productos'
     directorio_static_ubicacion: '%kernel.project_dir%/public/static/ubicacion'
 
 services:

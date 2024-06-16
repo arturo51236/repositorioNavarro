@@ -24,6 +24,58 @@ return [
         'path' => './assets/global.js',
         'entrypoint' => true,
     ],
+    'alpine' => [
+        'path' => './assets/alpine.js',
+        'entrypoint' => true,
+    ],
+    'global-carrito_usuario' => [
+        'path' => './assets/global-carrito_usuario.js',
+        'entrypoint' => true,
+    ],
+    'global-producto' => [
+        'path' => './assets/global-producto.js',
+        'entrypoint' => true,
+    ],
+    'global-productos_propios' => [
+        'path' => './assets/global-productos_propios.js',
+        'entrypoint' => true,
+    ],
+    'global-productos_categoria' => [
+        'path' => './assets/global-productos_categoria.js',
+        'entrypoint' => true,
+    ],
+    'admin-accesos' => [
+        'path' => './assets/admin-accesos.js',
+        'entrypoint' => true,
+    ],
+    'admin-categorias' => [
+        'path' => './assets/admin-categorias.js',
+        'entrypoint' => true,
+    ],
+    'admin-contacto' => [
+        'path' => './assets/admin-contacto.js',
+        'entrypoint' => true,
+    ],
+    'admin-estados' => [
+        'path' => './assets/admin-estados.js',
+        'entrypoint' => true,
+    ],
+    'admin-fabricantes' => [
+        'path' => './assets/admin-fabricantes.js',
+        'entrypoint' => true,
+    ],
+    'admin-pedidos' => [
+        'path' => './assets/admin-pedidos.js',
+        'entrypoint' => true,
+    ],
+    'admin-productos' => [
+        'path' => './assets/admin-productos.js',
+        'entrypoint' => true,
+    ],
+    'admin-usuarios' => [
+        'path' => './assets/admin-usuarios.js',
+        'entrypoint' => true,
+    ],
     'jquery' => [
         'version' => '3.7.1',
     ],
@@ -46,5 +98,18 @@ return [
     'flowbite/dist/flowbite.min.css' => [
         'version' => '2.3.0',
         'type' => 'css',
+    ],
+    'datatables.net-dt' => [
+        'version' => '2.0.8',
+    ],
+    'datatables.net' => [
+        'version' => '2.0.8',
+    ],
+    'datatables.net-dt/css/dataTables.dataTables.min.css' => [
+        'version' => '2.0.8',
+        'type' => 'css',
+    ],
+    'alpinejs' => [
+        'version' => '3.14.0',
     ],
 ];

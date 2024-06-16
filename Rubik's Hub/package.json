@@ -1,5 +1,8 @@
 {
   "dependencies": {
+    "alpinejs": "^3.14.0",
+    "datatables.net-dt": "^2.0.8",
+    "datatables.net-responsive-dt": "^3.0.2",
     "flowbite": "^2.3.0"
   }
 }

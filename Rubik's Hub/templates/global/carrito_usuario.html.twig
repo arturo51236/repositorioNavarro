@@ -1,0 +1,138 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Carrito{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+
+    {% block javascripts %}
+    {% endblock %}
+
+    {{ importmap(['app', 'global', 'global-carrito_usuario']) }}
+{% endblock %}
+
+{% block mid %}
+    <main class="flex-grow min-h-[calc(100vh-8rem)] flex flex-col">
+        <div class="w-full flex flex-col items-center min-h-[calc(100vh-8rem)]">
+            <div class="w-1/2 lg:w-2/6 text-center shadow-lg rounded-lg bg-indigo-200 ring ring-offset-3 ring-gray-900/5 mt-5" id="title-carrito-usuario">
+                <h1 class="h3 my-3 font-weight-normal text-center text-3xl font-bold text-gray-900">Carrito</h1>
+            </div>
+            <div class="w-full lg:w-5/6 flex flex-col p-5 box-border">
+                {% if carrito_usuario is defined and carrito_usuario is not null and attribute(carrito_usuario, 'response') is not defined %}
+                    {% set precio_total = 0 %}
+                    {% for linea_carrito in carrito_usuario %}
+                        {% set precio_total = precio_total + (linea_carrito.producto.precio * linea_carrito.cantidad) %}
+                        <div class="flex w-full my-8 lg:my-4">
+                            <div class="mx-auto w-5/6 transform overflow-hidden rounded-lg bg-white shadow-md flex flex-row justify-between" id="carta-carrito-usuario">
+                                <img class="h-28 w-1/6 object-cover object-center" src="{{ asset('uploads/productos/' ~ linea_carrito.producto.fotos[0]) }}" alt="" />
+                                <div class="p-3 flex-grow">
+                                    <h2 class="mb-2 text-lg font-medium dark:text-white text-gray-900">{{ linea_carrito.producto.nombre }}</h2>
+                                    <p class="my-1 text-sm font-semibold text-gray-900 dark:text-white">Cantidad: {{ linea_carrito.cantidad }}</p>
+                                    <div class="w-full flex justify-between items-center">
+                                        <p class="my-1 text-lg font-semibold text-gray-900 dark:text-white">{{ linea_carrito.producto.precio }} €</p>
+                                        <p class="my-1 text-sm font-semibold text-gray-500 dark:text-white">{{ linea_carrito.producto.fabricante.nombre }}</p>
+                                        <input type="hidden" value="{{ linea_carrito.producto.uuid }}">
+                                    </div>
+                                </div>
+                                <div id="eliminar-del-carrito" class="h-full flex items-center bg-gray-100">
+                                    <input type="hidden" value="{{ linea_carrito.uuid }}">
+                                    <img class="h-12 w-12 mx-6" src="{{ asset('static/images/delete.svg') }}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div id="resumen-carrito" class="mt-4 text-xl font-bold">
+                        <div class="flex justify-between m-4 items-center border-t-2 border-gray-700">
+                            <h2>Precio total: {{ precio_total }} €</h2>
+                            <button id="confirmar-compra" type="button" class="h-12 bg-indigo-400 text-white text-sm font-bold px-6 py-3 rounded-xl shadow hover:shadow-lg outline-none focus:outline-none my-3 ease-linear transition-all duration-150 transpa">Confirmar compra</button>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="flex w-full justify-center mt-6">
+                        <h1 class="text-lg text-gray-900">Tu carrito está vacío</h1>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="hidden fixed z-10 inset-0" id="confirmar-modal-compra">
+            <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                    <div class="absolute inset-0 bg-black/60"></div>
+                </div>
+                <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+                <div class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+                    <div>
+                        <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-gray-100">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6 text-gray-600">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10a4 4 0 114 4v1m0 4h.01" />
+                            </svg>
+                        </div>
+                        <div class="mt-3 text-center sm:mt-5">
+                            <div class="mt-2">
+                                <p id="mensaje-confirmar-modal-compra" class="text-sm text-gray-500">¿Estás seguro de que deseas confirmar tu compra?</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5 sm:mt-6">
+                        <button id="cerrar-confirmar-modal-compra" class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:text-sm">No</button>
+                    </div>
+                    <div class="mt-2 sm:mt-4">
+                        <button id="aceptar-confirmar-modal-compra" class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:text-sm">Sí</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hidden fixed z-10 inset-0" id="exito-modal-carrito">
+            <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                    <div class="absolute inset-0 bg-black/60"></div>
+                </div>
+                <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+                <div class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+                    <div>
+                        <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6 text-green-600">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <div class="mt-3 text-center sm:mt-5">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-headline">Éxito</h3>
+                            <div class="mt-2">
+                                <p id="mensaje-exito-modal-carrito" class="text-sm text-gray-500">Tu acción se ha ejecutado correctamente</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5 sm:mt-6">
+                        <button id="cerrar-exito-modal-carrito" class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:text-sm">Vale</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hidden fixed z-10 inset-0" id="error-modal-carrito">
+            <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                    <div class="absolute inset-0 bg-black/60"></div>
+                </div>
+                <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+                <div class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+                    <div>
+                        <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100">
+                            <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </div>
+                        <div class="mt-3 text-center sm:mt-5">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-headline">Error</h3>
+                            <div class="mt-2">
+                                <p id="mensaje-error-modal-carrito" class="text-sm text-gray-500">No existen datos o ha ocurrido un error cargando la información.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5 sm:mt-6">
+                        <button id="cerrar-error-modal-carrito" class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:text-sm">Vale</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

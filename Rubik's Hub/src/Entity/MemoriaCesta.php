@@ -19,12 +19,13 @@ class MemoriaCesta
     #[ORM\Column]
     private ?int $cantidad = null;
 
-    #[ORM\Column(length: 180)]
-    private ?string $produto = null;
-
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
     private ?Usuario $usuario = null;
+
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Producto $producto = null;
 
     public function getId(): ?int
     {
@@ -55,18 +56,6 @@ class MemoriaCesta
         return $this;
     }
 
-    public function getProduto(): ?string
-    {
-        return $this->produto;
-    }
-
-    public function setProduto(string $produto): static
-    {
-        $this->produto = $produto;
-
-        return $this;
-    }
-
     public function getUsuario(): ?Usuario
     {
         return $this->usuario;
@@ -75,6 +64,18 @@ class MemoriaCesta
     public function setUsuario(?Usuario $usuario): static
     {
         $this->usuario = $usuario;
+
+        return $this;
+    }
+
+    public function getProducto(): ?Producto
+    {
+        return $this->producto;
+    }
+
+    public function setProducto(?Producto $producto): static
+    {
+        $this->producto = $producto;
 
         return $this;
     }

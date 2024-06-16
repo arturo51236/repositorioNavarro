@@ -21,28 +21,43 @@ class ProductoRepository extends ServiceEntityRepository
         parent::__construct($registry, Producto::class);
     }
 
-//    /**
-//     * @return Producto[] Returns an array of Producto objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('p.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+     * @return Producto[] Devuelve un array de productos de una categoría concreta
+     */
+    public function findByCategoria($uuid): array
+    {
+        return $this->createQueryBuilder('p')
+            ->join('p.categoria', 'c')
+            ->andWhere('c.uuid = :val')
+            ->setParameter('val', $uuid)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
-//    public function findOneBySomeField($value): ?Producto
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    /**
+     * @return Producto[] Devuelve un array de productos con diseño propio
+     */
+    public function findByDiseno_propio(): array
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.diseno_propio = :val')
+            ->setParameter('val', true)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    /**
+     * @return Producto Devuelve un producto a partir de su uuid
+     */
+    public function findByUuid($uuid): ?Producto
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.uuid = :val')
+            ->setParameter('val', $uuid)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
 }

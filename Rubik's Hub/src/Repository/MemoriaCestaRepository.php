@@ -21,28 +21,44 @@ class MemoriaCestaRepository extends ServiceEntityRepository
         parent::__construct($registry, MemoriaCesta::class);
     }
 
-//    /**
-//     * @return MemoriaCesta[] Returns an array of MemoriaCesta objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('m')
-//            ->andWhere('m.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('m.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+     * @return MemoriaCesta Devuelve la linea de pedido (sin confirmar) a partir de un uuid concreto
+     */
+    public function findByUuid($uuid): ?MemoriaCesta
+    {
+        return $this->createQueryBuilder('m')
+            ->andWhere('m.uuid = :val')
+            ->setParameter('val', $uuid)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
 
-//    public function findOneBySomeField($value): ?MemoriaCesta
-//    {
-//        return $this->createQueryBuilder('m')
-//            ->andWhere('m.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    /**
+     * @return MemoriaCesta[] Devuelve un array de lineas de pedido (sin confirmar) de un usuario concreto
+     */
+    public function findByUuidUsuario($uuid): array
+    {
+        return $this->createQueryBuilder('m')
+            ->join('m.usuario', 'u')
+            ->andWhere('u.uuid = :val')
+            ->setParameter('val', $uuid)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    /**
+     * @return MemoriaCesta[] Devuelve un array con todas las lineas de pedido (sin confirmar) de un producto concreto
+     */
+    public function findByIdProducto($id): array
+    {
+        return $this->createQueryBuilder('m')
+            ->join('m.producto', 'p')
+            ->andWhere('p.id = :val')
+            ->setParameter('val', $id)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }
