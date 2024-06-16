@@ -20,6 +20,8 @@ security:
                 login_path: login
                 check_path: login
                 enable_csrf: true
+                success_handler: App\Security\Authentication\AuthenticationSuccessHandler
+                failure_handler: App\Security\Authentication\AuthenticationFailureHandler
             logout:
                 path: logout
                 # where to redirect after logout
@@ -34,8 +36,15 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/acceso, roles: ROLE_ADMIN }
+        - { path: ^/contacto, roles: ROLE_ADMIN }
+        - { path: ^/estado, roles: ROLE_ADMIN }
+        - { path: ^/usuario, roles: ROLE_ADMIN }
+        - { path: ^/lineapedido, roles: ROLE_USER }
+        - { path: ^/memoriacesta, roles: ROLE_USER }
+        - { path: ^/pedido, roles: ROLE_USER }
+        - { path: ^/logout, roles: ROLE_USER }
 
 when@test:
     security:

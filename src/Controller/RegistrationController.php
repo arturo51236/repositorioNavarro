@@ -79,7 +79,7 @@ class RegistrationController extends AbstractController
                         $this->getParameter('directorio_uploads_usuarios'),
                         $fotoNuevoNombre
                     );
-                } catch (FileException $ex) {
+                } catch (FileException $exception) {
                     $this->addFlash('error', 'Error al guardar la foto de perfil');
     
                     return $this->redirectToRoute('registro');

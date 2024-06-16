@@ -1,0 +1,146 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ producto.nombre }}{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+
+    {% block javascripts %}
+    {% endblock %}
+
+    {{ importmap(['app', 'global', 'alpine', 'global-producto']) }}
+{% endblock %}
+
+{% block mid %}
+    <main class="flex-grow z-20">
+        <div class="flex flex-wrap flex-row items-center min-h-[calc(100vh-12rem)]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 w-full">
+                <div class="flex flex-wrap box-border flex-col md:flex-row w-5/6 m-auto" id="producto-info">
+                    <div class="md:flex-1 px-4 w-5/6 m-auto lg:w-1/2">
+                        <div x-data="{ 
+                            image: 1, 
+                            images: [
+                                '{{ asset('uploads/productos/' ~ producto.fotos[0]) }}',
+                                '{{ asset('uploads/productos/' ~ producto.fotos[1]) }}',
+                                '{{ asset('uploads/productos/' ~ producto.fotos[2]) }}',
+                                '{{ asset('uploads/productos/' ~ producto.fotos[3]) }}'
+                            ] 
+                        }" x-cloak>
+                            <div class="h-64 md:h-80 rounded-lg mb-4 img-producto">
+                                <div x-show="image === 1" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
+                                    <img :src="images[0]" alt="Imagen 1" class="h-full w-full rounded-lg">
+                                </div>
+                                <div x-show="image === 2" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
+                                    <img :src="images[1]" alt="Imagen 2" class="h-full w-full rounded-lg">
+                                </div>
+                                <div x-show="image === 3" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
+                                    <img :src="images[2]" alt="Imagen 3" class="h-full w-full rounded-lg">
+                                </div>
+                                <div x-show="image === 4" class="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
+                                    <img :src="images[3]" alt="Imagen 4" class="h-full w-full rounded-lg">
+                                </div>
+                            </div>
+                            <div class="flex -mx-2 mb-4">
+                                <template x-for="(img, index) in images" :key="index">
+                                    <div class="flex-1 px-2">
+                                        <button 
+                                            x-on:click="image = index + 1" 
+                                            :style="`background-image: url(${img}); background-size: cover; background-position: center;`" 
+                                            :class="{ 'ring-2 ring-indigo-400 ring-inset': image === index + 1 }" 
+                                            class="focus:outline-none w-full rounded-lg h-20 md:h-24 bg-gray-100 flex items-center justify-center btn-imagen-producto">
+                                        </button>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:flex-1 px-4 w-1/2">
+                        <div class="w-full">
+                            <h2 class="mb-2 leading-tight tracking-tight font-bold text-gray-800 text-2xl md:text-3xl texto-producto">{{ producto.nombre }}</h2>
+                            <p class="text-gray-500 text-sm texto-producto">Fabricante: <a href="#" class="text-indigo-400 hover:underline">{{ producto.fabricante.nombre }}</a></p>
+                            <div class="flex items-center space-x-4 my-4">
+                                <div>
+                                    <div class="rounded-lg bg-gray-100 flex py-2 px-3 transpa">
+                                        <span class="font-bold text-indigo-600 text-3xl">{{ producto.precio }}</span>
+                                        <span class="text-indigo-400 mr-1 mt-1">€</span>
+                                    </div>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-gray-400 text-sm">IVA incluido</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="block text-xs uppercase text-gray-600 tracking-wide font-semibold texto-producto">Descripción</div>
+                                <p class="text-gray-500 texto-producto">{{ producto.descripcion }}</p>
+                            </div>
+                            <div class="flex flex-col">
+                                <div class="block text-xs uppercase text-gray-600 tracking-wide font-semibold my-3 texto-producto">Cantidad</div>
+                                <div class="relative">
+                                    {% if app.user %}
+                                        <input id="cantidad-producto" class="rounded-xl border border-gray-200 h-10 w-20 flex items-end ms-4 transpa" type="number" min="1" max="{{ producto.disponibilidad }}" value="1">
+                                        <button id="anadir-carrito" type="button" class="h-12 bg-indigo-400 text-white text-sm font-bold px-6 py-3 rounded-xl shadow hover:shadow-lg outline-none focus:outline-none my-3 ease-linear transition-all duration-150 transpa">Añadir al carrito</button>
+                                    {% else %}
+                                        <input id="cantidad-producto" class="rounded-xl border border-gray-200 h-10 w-20 flex items-end ms-4 transpa mb-5" type="number" min="1" max="{{ producto.disponibilidad }}" value="1">
+                                        <a href="{{ path('login') }}" class="h-12 bg-indigo-400 text-white text-sm font-bold px-6 py-3 rounded-xl shadow hover:shadow-lg outline-none focus:outline-none my-3 ease-linear transition-all duration-150 transpa">Añadir al carrito</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hidden fixed z-10 inset-0" id="exito-modal-producto">
+            <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                    <div class="absolute inset-0 bg-black/60"></div>
+                </div>
+                <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+                <div class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+                    <div>
+                        <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6 text-green-600">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <div class="mt-3 text-center sm:mt-5">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-headline">Éxito</h3>
+                            <div class="mt-2">
+                                <p id="mensaje-exito-modal-producto" class="text-sm text-gray-500">Tu acción se ha ejecutado correctamente</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5 sm:mt-6">
+                        <button id="cerrar-exito-modal-producto" class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:text-sm">Vale</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hidden fixed z-10 inset-0 overflow-y-auto" id="error-modal-producto">
+            <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                    <div class="absolute inset-0 bg-black/60"></div>
+                </div>
+                <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+                <div class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+                    <div>
+                        <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100">
+                            <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </div>
+                        <div class="mt-3 text-center sm:mt-5">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-headline">Error</h3>
+                            <div class="mt-2">
+                                <p id="mensaje-error-modal-producto" class="text-sm text-gray-500">No existen datos o ha ocurrido un error cargando la información.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5 sm:mt-6">
+                        <button id="cerrar-error-modal-producto" class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:text-sm">Vale</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

@@ -1,0 +1,299 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Productos{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+
+    {% block header %}
+    {% endblock %}
+
+    {% block footer %}
+    {% endblock %}
+
+    {% block javascripts %}
+    {% endblock %}
+
+    {{ importmap(['app', 'admin-productos']) }}
+{% endblock %}
+
+{% block mid %}
+    <main class="flex-grow">
+        <div class="flex items-center min-h-[calc(100vh-12rem)]">
+            <div id="mid" class="flex flex-column flex-wrap min-h-lvh items-center m-auto">
+                <div class="flex flex-wrap flex-row align-center justify-center m-auto p-0 m-0">
+                    <div class="flex h-48 w-48 bg-indigo-400 m-5 mb-0 rounded-3xl border-4 border-black hover:shadow-lg hover:ring hover:ring-offset-3 hover:ring-gray-900/5 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-200">
+                        <div class="flex flex-wrap flex-column w-full text-center">
+                            <a class="flex flex-wrap items-center text-center justify-center h-full w-full" id="abrir-modal-crear-producto">
+                                <div class="w-32 bg-white rounded-3xl m-auto">
+                                    <img class="h-32 w-32 border-4 border-black rounded-3xl m-auto" src="{{ asset('static/images/anadir.svg') }}" alt="">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex h-48 w-48 bg-indigo-400 m-5 mb-0 rounded-3xl border-4 border-black hover:shadow-lg hover:ring hover:ring-offset-3 hover:ring-gray-900/5 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-200">
+                        <div class="flex flex-wrap flex-column w-full text-center">
+                            <a class="flex flex-wrap items-center text-center justify-center h-full w-full" id="abrir-modal-eliminar-producto">
+                                <div class="w-32 bg-white rounded-3xl m-auto">
+                                    <img class="h-32 w-32 border-4 border-black rounded-3xl m-auto" src="{{ asset('static/images/eliminar.svg') }}" alt="">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex h-48 w-48 bg-indigo-400 m-5 mb-0 rounded-3xl border-4 border-black hover:shadow-lg hover:ring hover:ring-offset-3 hover:ring-gray-900/5 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-105 duration-200">
+                        <div class="flex flex-wrap flex-column w-full text-center">
+                            <a class="flex flex-wrap items-center text-center justify-center h-full w-full" id="abrir-modal-editar-producto-tabla">
+                                <div class="w-32 bg-white rounded-3xl m-auto">
+                                    <img class="h-32 w-32 border-4 border-black rounded-3xl m-auto" src="{{ asset('static/images/editar.svg') }}" alt="">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div id="volver-atras" class="w-full text-center">
+                    <a class="py-3 px-4 bg-red-600 text-white border-2 border-red-300 rounded-xl" href="{{ path('admin_index') }}">Volver atrás</a>
+                </div>
+                <div id="crear-modal-producto" class="flex bg-black/60 hidden fixed overflow-auto top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center">
+                    <div class="relative w-full max-w-md px-4 md:h-auto">
+                        <div class="bg-white rounded-lg shadow relative dark:bg-gray-700 m-5 mt-72">
+                            <div class="flex justify-end p-2">
+                                <button id="cerrar-modal-crear-producto" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                </button>
+                            </div>
+                            <div class="p-3">
+                                <div class="space-y-6 px-6 lg:px-8 pb-4 sm:pb-6 xl:pb-8">
+                                    <div>
+                                        <label for="fotosCrear" class="block uppercase text-sm font-bold mb-3 h-full">Fotos</label>
+                                        <input type="file" name="fotosCrear[]" id="fotosCrear" class="w-full rounded-xl border-2 border-gray-300" multiple>
+                                    </div>
+                                    <div>
+                                        <label for="nombreCrear" class="block uppercase text-sm font-bold mb-3">Nombre</label>
+                                        <input type="text" name="nombreCrear" id="nombreCrear" class="border-0 px-3 py-3 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" required>
+                                    </div>
+                                    <div>
+                                        <label for="precioCrear" class="block uppercase text-sm font-bold mb-3">Precio</label>
+                                        <input type="number" name="precioCrear" id="precioCrear" class="border-0 px-3 py-3 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" required>
+                                    </div>
+                                    <div>
+                                        <label for="disponibilidadCrear" class="block uppercase text-sm font-bold mb-3">Disponibilidad</label>
+                                        <input type="number" name="disponibilidadCrear" id="disponibilidadCrear" class="border-0 px-3 py-3 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" required>
+                                    </div>
+                                    <div class="flex flex-row">
+                                        <label for="disenoPropioCrear" class="block uppercase text-sm font-bold mb-3">Diseño Propio</label>
+                                        <input type="checkbox" name="disenoPropioCrear" id="disenoPropioCrear" class="border-0 ms-4 p-3 bg-white rounded shadow focus:outline-none focus:ring" required>
+                                    </div>
+                                    <div>
+                                        <label for="categoriaCrear" class="block uppercase text-sm font-bold mb-3">Categoría</label>
+                                        <select name="categoriaCrear" id="categoriaCrear" class="border-0 px-3 py-3 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" required>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="fabricanteCrear" class="block uppercase text-sm font-bold mb-3">Fabricante</label>
+                                        <select name="fabricanteCrear" id="fabricanteCrear" class="border-0 px-3 py-3 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" required>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="descripcionCrear" class="block uppercase text-sm font-bold mb-3">Descripción</label>
+                                        <textarea name="descripcionCrear" id="descripcionCrear" class="border-0 px-3 py-3 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"></textarea>
+                                    </div>
+                                    <div class="text-center mt-6">
+                                        <button id="boton-crear-producto" class="bg-indigo-400 text-white text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150">Crear</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="eliminar-modal-producto" class="flex flex-wrap bg-black/60 hidden fixed h-modal md:h-full top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center">
+                    <div class="flex flex-wrap relative h-full md:h-auto">
+                        <div class="bg-white rounded-lg shadow relative w-full p-5">
+                            <h3>Haz click en la fila de la tabla correspondiente a el producto que deseas eliminar.</h3>
+                            <div class="flex justify-end p-2">
+                                <button id="cerrar-modal-eliminar-producto" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                </button>
+                            </div>
+                            <div>
+                                <table class="hidden w-full" id="eliminar-datatable-productos">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Nombre</th>
+                                            <th>Precio</th>
+                                            <th>Descripción</th>
+                                            <th>Disponibilidad</th>
+                                            <th>Diseño propio</th>
+                                            <th>Fabricante</th>
+                                            <th>Categoría</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="editar-modal-producto-tabla" class="flex flex-wrap bg-black/60 hidden fixed h-modal md:h-full top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center">
+                    <div class="flex flex-wrap relative h-full md:h-auto">
+                        <div class="bg-white rounded-lg shadow relative w-full p-5">
+                            <h3>Haz click en la fila de la tabla correspondiente a el producto que deseas editar.</h3>
+                            <div class="flex justify-end p-2">
+                                <button id="cerrar-modal-editar-producto-tabla" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                </button>
+                            </div>
+                            <div>
+                                <table class="hidden w-full" id="editar-datatable-productos">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Nombre</th>
+                                            <th>Precio</th>
+                                            <th>Descripción</th>
+                                            <th>Disponibilidad</th>
+                                            <th>Diseño propio</th>
+                                            <th>Fabricante</th>
+                                            <th>Categoría</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="editar-modal-producto-datos" class="flex bg-black/60 hidden fixed overflow-auto top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center">
+                    <div class="relative w-full max-w-md px-4 md:h-auto">
+                        <div class="bg-white rounded-lg shadow relative dark:bg-gray-700 m-5 mt-72">
+                            <div class="flex justify-end p-2">
+                                <button id="cerrar-modal-editar-producto-datos" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                </button>
+                            </div>
+                            <div class="p-3">
+                                <div class="space-y-6 px-6 lg:px-8 pb-4 sm:pb-6 xl:pb-8">
+                                    <div>
+                                        <label for="fotosEditar" class="block uppercase text-sm font-bold mb-3 h-full">Fotos Nuevas</label>
+                                        <input type="file" name="fotosEditar[]" id="fotosEditar" class="w-full rounded-xl border-2 border-gray-300" multiple>
+                                    </div>
+                                    <div>
+                                        <label for="nombreEditar" class="block uppercase text-sm font-bold mb-3">Nombre</label>
+                                        <input type="text" name="nombreEditar" id="nombreEditar" class="border-0 px-3 py-3 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" required>
+                                    </div>
+                                    <div>
+                                        <label for="precioEditar" class="block uppercase text-sm font-bold mb-3">Precio</label>
+                                        <input type="number" name="precioEditar" id="precioEditar" class="border-0 px-3 py-3 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" required>
+                                    </div>
+                                    <div>
+                                        <label for="disponibilidadEditar" class="block uppercase text-sm font-bold mb-3">Disponibilidad</label>
+                                        <input type="number" name="disponibilidadEditar" id="disponibilidadEditar" class="border-0 px-3 py-3 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" required>
+                                    </div>
+                                    <div class="flex flex-row">
+                                        <label for="disenoPropioEditar" class="block uppercase text-sm font-bold mb-3">Diseño Propio</label>
+                                        <input type="checkbox" name="disenoPropioEditar" id="disenoPropioEditar" class="border-0 ms-4 p-3 bg-white rounded shadow focus:outline-none focus:ring" required>
+                                    </div>
+                                    <div>
+                                        <label for="categoriaEditar" class="block uppercase text-sm font-bold mb-3">Categoría</label>
+                                        <select name="categoriaEditar" id="categoriaEditar" class="border-0 px-3 py-3 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" required>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="fabricanteEditar" class="block uppercase text-sm font-bold mb-3">Fabricante</label>
+                                        <select name="fabricanteEditar" id="fabricanteEditar" class="border-0 px-3 py-3 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" required>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label for="descripcionEditar" class="block uppercase text-sm font-bold mb-3">Descripción</label>
+                                        <textarea name="descripcionEditar" id="descripcionEditar" class="border-0 px-3 py-3 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"></textarea>
+                                    </div>
+                                    <div class="text-center mt-6">
+                                        <button id="boton-editar-producto" class="bg-indigo-400 text-white text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150">Editar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden fixed z-10 inset-0" id="confirmar-modal-producto">
+                    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                        <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                            <div class="absolute inset-0 bg-black/60"></div>
+                        </div>
+                        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+                        <div class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+                            <div>
+                                <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-gray-100">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6 text-gray-600">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10a4 4 0 114 4v1m0 4h.01" />
+                                    </svg>
+                                </div>
+                                <div class="mt-3 text-center sm:mt-5">
+                                    <div class="mt-2">
+                                        <p id="mensaje-confirmar-modal-producto" class="text-sm text-gray-500">¿Estás seguro de que quieres realizar la acción?</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-5 sm:mt-6">
+                                <button id="cerrar-confirmar-modal-producto" class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:text-sm">No</button>
+                            </div>
+                            <div class="mt-2 sm:mt-4">
+                                <button id="aceptar-confirmar-modal-producto" class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:text-sm">Sí</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden fixed z-10 inset-0" id="exito-modal-producto">
+                    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                        <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                            <div class="absolute inset-0 bg-black/60"></div>
+                        </div>
+                        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+                        <div class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+                            <div>
+                                <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6 text-green-600">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <div class="mt-3 text-center sm:mt-5">
+                                    <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-headline">Éxito</h3>
+                                    <div class="mt-2">
+                                        <p id="mensaje-exito-modal-producto" class="text-sm text-gray-500">Tu acción se ha ejecutado correctamente</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-5 sm:mt-6">
+                                <button id="cerrar-exito-modal-producto" class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:text-sm">Vale</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden fixed z-10 inset-0" id="error-modal-producto">
+                    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+                        <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                            <div class="absolute inset-0 bg-black/60"></div>
+                        </div>
+                        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+                        <div class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+                            <div>
+                                <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100">
+                                    <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </div>
+                                <div class="mt-3 text-center sm:mt-5">
+                                    <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-headline">Error</h3>
+                                    <div class="mt-2">
+                                        <p id="mensaje-error-modal-producto" class="text-sm text-gray-500">No existen datos o ha ocurrido un error cargando la información.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-5 sm:mt-6">
+                                <button id="cerrar-error-modal-producto" class="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:text-sm">Vale</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

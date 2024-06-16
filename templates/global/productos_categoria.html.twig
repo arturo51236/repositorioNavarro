@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ productos_categoria[0].categoria.nombre }}{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+
+    {% block javascripts %}
+    {% endblock %}
+
+    {{ importmap(['app', 'global', 'global-productos_categoria']) }}
+{% endblock %}
+
+{% block mid %}
+    <main class="flex-grow min-h-[calc(100vh-8rem)] flex flex-col">
+        <div class="w-full flex flex-col items-center min-h-[calc(100vh-8rem)] z-20">
+            <div class="w-1/2 lg:w-2/6 text-center shadow-lg rounded-lg bg-indigo-200 ring ring-offset-3 ring-gray-900/5 mt-5" id="title-productos-categoria">
+                <h1 class="h3 my-3 font-weight-normal text-center text-3xl font-bold text-gray-900">{{ productos_categoria[0].categoria.nombre }}</h1>
+            </div>
+            <div class="w-full lg:w-5/6 flex flex-row p-5 box-border z-10">
+                {% if productos_categoria is defined and productos_categoria is not null %}
+                    {% for producto in productos_categoria %}
+                        <div class="flex w-full sm:w-1/2 lg:w-1/3 my-14 lg:my-10">
+                            <div class="mx-auto w-64 transform overflow-hidden rounded-lg bg-white dark:bg-slate-800 shadow-md duration-300 hover:scale-105 hover:shadow-lg" id="carta-productos-categoria">
+                                <img class="h-40 w-full object-cover object-center" src="{{ asset('uploads/productos/' ~ producto.fotos[0]) }}" alt="" />
+                                <div class="p-4">
+                                    <div class="hidden">{{ producto.uuid }}</div>
+                                    <h2 class="mb-2 text-lg font-medium dark:text-white text-gray-900">{{ producto.nombre }}</h2>
+                                    <div class="w-full flex justify-between items-center">
+                                        <p class="my-2 text-lg font-semibold text-gray-900 dark:text-white">{{ producto.precio }} €</p>
+                                        <p class="my-2 text-sm font-semibold text-gray-500 dark:text-white">{{ producto.fabricante.nombre }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="flex w-full justify-center mt-8">
+                        <h1 class="text-lg text-gray-900">No hay productos en esta categoría</h1>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+{% endblock %}

@@ -24,6 +24,7 @@ class LoginController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_USER')]
     #[Route(path: '/logout', name: 'logout')]
     public function logout(): void
     {

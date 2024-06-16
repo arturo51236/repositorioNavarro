@@ -9,7 +9,9 @@ module.exports = {
   theme: {
     fontSize: {
       sm: ['14px', '20px'],
+      'xl': '1.25rem',
       '3xl': ['30px', '36px'],
+      '6xl': '3.75rem',
     },
     colors: {
       'white': '#ffffff',

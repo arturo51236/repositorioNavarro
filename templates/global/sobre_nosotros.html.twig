@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sobre nosotros{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+
+    {% block javascripts %}
+    {% endblock %}
+
+    {{ importmap(['app', 'global']) }}
+{% endblock %}
+
+{% block mid %}
+    <main class="flex-grow min-h-[calc(100vh-8rem)] flex flex-col z-20">
+        <section class="flex items-center relative pt-16">
+            <div class="container mx-auto">
+                <div class="flex flex-wrap items-center">
+                    <div class="w-10/12 md:w-6/12 lg:w-4/12 px-12 md:px-4 mr-auto ml-auto -mt-78">
+                        <div class="relative flex flex-col min-w-0 break-words w-4/6 m-auto mb-12 shadow-lg rounded-lg bg-indigo-400" id="carta-foto">
+                            <img alt="" src="{{ asset('static/images/fotopersonal.jpg') }}" class="w-full align-middle rounded-t-lg">
+                            <blockquote class="relative p-8 mb-4">
+                                <h4 class="text-xl font-bold text-white">
+                                    Arturo Navarro Balbuena
+                                </h4>
+                                <p class="text-md font-light mt-2 text-white">
+                                    Con una pasión arraigada por
+                                    la informática desde la
+                                    educación primaria, he
+                                    cultivado un constante deseo
+                                    de adquirir nuevos
+                                    conocimientos. Mi enfoque se
+                                    centra en la excelencia
+                                    profesional, demostrado
+                                    mediante una sólida
+                                    adaptabilidad al trabajo en
+                                    equipo.
+                                </p>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-6/12 px-4">
+                        <div class="flex flex-wrap">
+                            <div class="w-full md:w-4/12 px-4">
+                                <div class="relative flex flex-col mt-4">
+                                    <div class="px-4 py-5 flex-auto">
+                                        <div class="text-indigo-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white fotos-iconos-carta">
+                                            <img src="{{ asset('static/images/github.svg') }}">
+                                        </div>
+                                        <h6 class="text-xl mb-1 font-semibold sobre-nosotros-texto-1">Mis proyectos</h6>
+                                        <p class="mb-4 text-indigo-500 sobre-nosotros-texto-2">
+                                            Los puedes encontrar en mi <a class="text-indigo-700 underline" href="https://www.github.com/arturo51236">Github</a>.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="relative flex flex-col min-w-0">
+                                    <div class="px-4 py-5 flex-auto">
+                                        <div class="text-indigo-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white fotos-iconos-carta">
+                                            <img src="{{ asset('static/images/vias-contacto.svg') }}">
+                                        </div>
+                                        <h6 class="text-xl mb-1 font-semibold sobre-nosotros-texto-1">Contacto</h6>
+                                        <p class="text-indigo-500 sobre-nosotros-texto-2">Teléfono:
+                                            <a href="tel:+34663586657" class="text-indigo-700 underline">+34 663586657</a>
+                                        </p>
+                                        <p class="mb-4 text-indigo-500">
+                                            Email: <a href="mailto:arturonb51236@gmail.com" class="text-indigo-700 underline">arturonb51236@gmail.com</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="w-full md:w-6/12 px-4">
+                                <div class="relative flex flex-col min-w-0 mt-4">
+                                    <div class="px-4 py-5 flex-auto">
+                                        <div class="text-indigo-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white fotos-iconos-carta">
+                                            <img src="{{ asset('static/images/aptitudes.svg') }}">
+                                        </div>
+                                        <h6 class="text-xl mb-1 font-semibold sobre-nosotros-texto-1">Aptitudes</h6>
+                                        <p class="text-indigo-500 sobre-nosotros-texto-2">- Sistemas Operativos</p>
+                                        <p class="text-indigo-500 sobre-nosotros-texto-2">- Redes</p>
+                                        <p class="text-indigo-500 sobre-nosotros-texto-2">- Programación</p>
+                                    </div>
+                                </div>
+                                <div class="relative flex flex-col min-w-0">
+                                    <div class="px-4 py-5 flex-auto">
+                                        <div class="text-indigo-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white fotos-iconos-carta">
+                                            <img src="{{ asset('static/images/curriculum.svg') }}">
+                                        </div>
+                                        <h6 class="text-xl mb-1 font-semibold sobre-nosotros-texto-1">Currículum</h6>
+                                        <p class="mb-4 text-indigo-500 sobre-nosotros-texto-2">
+                                            <a class="text-indigo-700 underline" href="{{ asset('static/curriculum/curriculum.pdf') }}">Aquí</a>
+                                            puedes descargar mi currículum completo.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

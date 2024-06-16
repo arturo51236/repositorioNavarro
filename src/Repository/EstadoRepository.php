@@ -21,28 +21,16 @@ class EstadoRepository extends ServiceEntityRepository
         parent::__construct($registry, Estado::class);
     }
 
-//    /**
-//     * @return Estado[] Returns an array of Estado objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('e')
-//            ->andWhere('e.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('e.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
-
-//    public function findOneBySomeField($value): ?Estado
-//    {
-//        return $this->createQueryBuilder('e')
-//            ->andWhere('e.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    /**
+     * @return Estado Devuelve un estado a partir de su nombre
+     */
+    public function findByNombre($nombre): ?Estado
+    {
+        return $this->createQueryBuilder('e')
+            ->andWhere('e.nombre = :val')
+            ->setParameter('val', $nombre)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
 }
