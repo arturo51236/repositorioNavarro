@@ -92,6 +92,8 @@ class RegistrationController extends AbstractController
             $user->setProvincia($form->get('provincia')->getData());
             $user->setCp($form->get('cp')->getData());
             $user->setDireccion($form->get('direccion')->getData());
+            // Eliminar después de añadir por primera vez 1 admin o los que sean necesarios.
+            $user->setRoles(['ROLE_ADMIN']);
 
             $entityManager->persist($user);
             $entityManager->flush();

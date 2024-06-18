@@ -1,0 +1,19 @@
+PARA QUE FUNCIONE EL SERVIDOR DE CORREO Y MAYORÍA DE LA FUNCIONALIDAD
+DE LA WEB ES NECESARIO GUARDAR EN LA CARPETA "config/secrets/dev/" EL FICHERO "dev.decrypt.private.php"
+EN CASO DE QUERER DESPLEGAR LA APLICACIÓN CONTACTA CONMIGO POR CORREO.
+NO ESTÁ EN GITHUB PORQUE ES EL FICHERO QUE DESENCRIPTA LOS SECRETOS Y ESTO PERMITIRÍA
+VER CREDENCIALES PERSONALES QUE NO ESTOY DISPUESTO A ENTREGAR A CUALQUIERA.
+ÚNICAMENTE A PROFESORADO PARA LA CORRECIÓN DEL PROYECTO.
+
+En caso de que la aplicación presente algún error siendo desplegada
+ejecutar los siguientes comandos en orden (dentro de la carpeta Rubik's Hub):
+
+1. composer install
+2. npm install
+3. php bin/console importmap:install
+4. mkdir migrations
+5. php bin/console doctrine:database:create
+6. php bin/console make:migration
+7. php bin/console doctrine:migrations:migrate
+8. php bin/console tailwind:build --minify -w
+9. symfony server:start --no-tls

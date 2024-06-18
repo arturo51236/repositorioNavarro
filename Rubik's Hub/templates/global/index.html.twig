@@ -86,7 +86,7 @@
             <h1 class="h3 my-3 font-weight-normal text-center text-3xl font-bold text-gray-900">Todos los productos</h1>
         </div>
         <div class="w-full lg:w-5/6 flex flex-wrap p-5 h-full m-auto z-10">
-            {% if productos is defined and productos is not null %}
+            {% if productos is defined and productos is not null and attribute(productos, 'response') is not defined %}
                 {% for producto in productos %}
                     <div class="flex w-full sm:w-1/2 lg:w-1/4 my-4 lg:my-10">
                         <div class="mx-auto w-64 transform overflow-hidden rounded-lg bg-white dark:bg-slate-800 shadow-md duration-300 hover:scale-105 hover:shadow-lg" id="carta-producto">
@@ -102,6 +102,10 @@
                         </div>
                     </div>
                 {% endfor %}
+            {% else %}
+                <div class="flex w-full justify-center mt-6">
+                    <h1 class="text-lg text-gray-900">No existen productos en la página aún.</h1>
+                </div>
             {% endif %}
         </div>
     </main>

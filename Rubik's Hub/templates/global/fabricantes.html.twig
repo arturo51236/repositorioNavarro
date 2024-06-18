@@ -17,29 +17,35 @@
             <h1 class="h3 my-3 font-weight-normal text-center text-3xl font-bold text-gray-900">Fabricantes</h1>
         </div>
         <div class="flex items-center m-4">
-            <div class="w-full">
-                {% for fabricante in fabricantes %}
-                    {% if loop.index is odd %}
-                        <div class="float-left w-full p-4 box-border">
-                            <div class="w-1/2 bg-gray-200 rounded-3xl p-4 border-4 border-indigo-200 carta-fabricante">
-                                <img src="{{ asset('uploads/fabricantes/' ~ fabricante.foto) }}" class="h-40 m-auto object-cover object-center m-5 bg-white rounded-lg">
-                                <h2 class="text-xl font-semibold m-5">{{ fabricante.nombre }}</h2>
-                                <p class="m-5">{{ fabricante.descripcion }}</p>
+            {% if fabricantes is defined and fabricantes is not null and attribute(fabricantes, 'response') is not defined %}
+                <div class="w-full">
+                    {% for fabricante in fabricantes %}
+                        {% if loop.index is odd %}
+                            <div class="float-left w-full p-4 box-border">
+                                <div class="w-1/2 bg-gray-200 rounded-3xl p-4 border-4 border-indigo-200 carta-fabricante">
+                                    <img src="{{ asset('uploads/fabricantes/' ~ fabricante.foto) }}" class="h-40 m-auto object-cover object-center m-5 bg-white rounded-lg">
+                                    <h2 class="text-xl font-semibold m-5">{{ fabricante.nombre }}</h2>
+                                    <p class="m-5">{{ fabricante.descripcion }}</p>
+                                </div>
+                                <div class="w-1/2"></div>
                             </div>
-                            <div class="w-1/2"></div>
-                        </div>
-                    {% else %}
-                        <div class="w-full p-4">
-                            <div class="w-1/2"></div>
-                            <div class="bg-indigo-400 float-right w-1/2 p-4 box-border rounded-3xl border-4 border-indigo-200 carta-fabricante">
-                                <img src="{{ asset('uploads/fabricantes/' ~ fabricante.foto) }}" class="h-40 m-auto object-cover object-center m-5 rounded-lg">
-                                <h2 class="text-xl font-semibold m-5 text-white">{{ fabricante.nombre }}</h2>
-                                <p class="m-5 text-white">{{ fabricante.descripcion }}</p>
+                        {% else %}
+                            <div class="w-full p-4">
+                                <div class="w-1/2"></div>
+                                <div class="bg-indigo-400 float-right w-1/2 p-4 box-border rounded-3xl border-4 border-indigo-200 carta-fabricante">
+                                    <img src="{{ asset('uploads/fabricantes/' ~ fabricante.foto) }}" class="h-40 m-auto object-cover object-center m-5 rounded-lg">
+                                    <h2 class="text-xl font-semibold m-5 text-white">{{ fabricante.nombre }}</h2>
+                                    <p class="m-5 text-white">{{ fabricante.descripcion }}</p>
+                                </div>
                             </div>
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="flex w-full h-full justify-center mt-6">
+                    <h1 class="text-lg text-gray-900">No existen fabricantes en la página aún.</h1>
+                </div>
+            {% endif %}
             <div class="clear-both"></div>
         </div>
     </main>
