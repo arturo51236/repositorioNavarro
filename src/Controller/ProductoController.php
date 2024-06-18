@@ -7,6 +7,7 @@ use App\Repository\ProductoRepository;
 use App\Repository\CategoriaRepository;
 use App\Repository\FabricanteRepository;
 use App\Repository\MemoriaCestaRepository;
+use App\Repository\LineaPedidoRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Filesystem\Filesystem;
@@ -25,13 +26,15 @@ class ProductoController extends AbstractController
     private CategoriaRepository $categoriaRepository;
     private FabricanteRepository $fabricanteRepository;
     private MemoriaCestaRepository $memoriacestaRepository;
+    private LineaPedidoRepository $lineapedidoRepository;
 
-    public function __construct(ProductoRepository $productoRepository, CategoriaRepository $categoriaRepository, FabricanteRepository $fabricanteRepository, MemoriaCestaRepository $memoriacestaRepository, EntityManagerInterface $entityManager)
+    public function __construct(ProductoRepository $productoRepository, CategoriaRepository $categoriaRepository, FabricanteRepository $fabricanteRepository, MemoriaCestaRepository $memoriacestaRepository, LineaPedidoRepository $lineapedidoRepository, EntityManagerInterface $entityManager)
     {
         $this->productoRepository = $productoRepository;
         $this->categoriaRepository = $categoriaRepository;
         $this->fabricanteRepository = $fabricanteRepository;
         $this->memoriacestaRepository = $memoriacestaRepository;
+        $this->lineapedidoRepository = $lineapedidoRepository;
         $this->entityManager = $entityManager;
     }
 
@@ -261,6 +264,7 @@ class ProductoController extends AbstractController
 
         if ($producto != null) {
             $lineasMemoriaCesta = $this->memoriacestaRepository->findByIdProducto($producto[0]->getId());
+            $lineasPedido = $this->lineapedidoRepository->findByIdProducto($producto[0]->getId());
             $fotosAntiguas = $producto[0]->getFotos();
 
             $fotos = $request->files->all('fotos');
@@ -349,10 +353,20 @@ class ProductoController extends AbstractController
                     $this->entityManager->persist($productoNuevo);
                     $this->entityManager->flush();
 
-                    foreach ($lineasMemoriaCesta as $linea) {
-                        $linea->setProducto($productoNuevo);
-                        $this->entityManager->persist($linea);
+                    if ($lineasMemoriaCesta != null) {
+                        foreach ($lineasMemoriaCesta as $lineaM) {
+                            $lineaM->setProducto($productoNuevo);
+                            $this->entityManager->persist($lineaM);
+                        }
                     }
+
+                    if ($lineasPedido != null) {
+                        foreach ($lineasPedido as $lineaP) {
+                            $lineaP->setProducto($productoNuevo);
+                            $this->entityManager->persist($lineaP);
+                        }
+                    }
+
                     $this->entityManager->flush();
 
                     $this->entityManager->remove($producto[0]);

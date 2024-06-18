@@ -20,4 +20,18 @@ class LineaPedidoRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, LineaPedido::class);
     }
+
+    /**
+     * @return LineaPedido[] Devuelve un array con todas las lineas de pedido de un producto concreto
+     */
+    public function findByIdProducto($id): array
+    {
+        return $this->createQueryBuilder('l')
+            ->join('l.producto', 'p')
+            ->andWhere('p.id = :val')
+            ->setParameter('val', $id)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }

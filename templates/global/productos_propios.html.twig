@@ -18,7 +18,7 @@
                 <h1 class="h3 my-3 font-weight-normal text-center text-3xl font-bold text-gray-900">Nuestros diseños</h1>
             </div>
             <div class="w-full lg:w-5/6 flex flex-wrap p-5 h-full m-auto z-10">
-                {% if productos_propios is defined and productos_propios is not null %}
+                {% if productos_propios is defined and productos_propios is not null and attribute(productos_propios, 'response') is not defined %}
                     {% for producto in productos_propios %}
                         <div class="flex w-full sm:w-1/2 lg:w-1/3 my-14 lg:my-10">
                             <div class="mx-auto w-64 transform overflow-hidden rounded-lg bg-white dark:bg-slate-800 shadow-md duration-300 hover:scale-105 hover:shadow-lg" id="carta-productos-propios">
@@ -34,6 +34,10 @@
                             </div>
                         </div>
                     {% endfor %}
+                {% else %}
+                    <div class="flex w-full justify-center mt-6">
+                        <h1 class="text-lg text-gray-900">No existen productos propios en la página aún.</h1>
+                    </div>
                 {% endif %}
             </div>
         </div>
