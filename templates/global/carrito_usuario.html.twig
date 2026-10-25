@@ -26,11 +26,11 @@
                             <div class="mx-auto w-5/6 transform overflow-hidden rounded-lg bg-white shadow-md flex flex-row justify-between" id="carta-carrito-usuario">
                                 <img class="h-28 w-1/6 object-cover object-center" src="{{ asset('uploads/productos/' ~ linea_carrito.producto.fotos[0]) }}" alt="" />
                                 <div class="p-3 flex-grow">
-                                    <h2 class="mb-2 text-lg font-medium dark:text-white text-gray-900">{{ linea_carrito.producto.nombre }}</h2>
-                                    <p class="my-1 text-sm font-semibold text-gray-900 dark:text-white">Cantidad: {{ linea_carrito.cantidad }}</p>
+                                    <h2 class="mb-2 text-lg font-medium text-gray-900">{{ linea_carrito.producto.nombre }}</h2>
+                                    <p class="my-1 text-sm font-semibold text-gray-900">Cantidad: {{ linea_carrito.cantidad }}</p>
                                     <div class="w-full flex justify-between items-center">
-                                        <p class="my-1 text-lg font-semibold text-gray-900 dark:text-white">{{ linea_carrito.producto.precio }} €</p>
-                                        <p class="my-1 text-sm font-semibold text-gray-500 dark:text-white">{{ linea_carrito.producto.fabricante.nombre }}</p>
+                                        <p class="my-1 text-lg font-semibold text-gray-900">{{ linea_carrito.producto.precio }} €</p>
+                                        <p class="my-1 text-sm font-semibold text-gray-500">{{ linea_carrito.producto.fabricante.nombre }}</p>
                                         <input type="hidden" value="{{ linea_carrito.producto.uuid }}">
                                     </div>
                                 </div>

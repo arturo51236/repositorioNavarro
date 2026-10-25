@@ -21,14 +21,14 @@
                 {% if productos_propios is defined and productos_propios is not null and attribute(productos_propios, 'response') is not defined %}
                     {% for producto in productos_propios %}
                         <div class="flex w-full sm:w-1/2 lg:w-1/3 my-14 lg:my-10">
-                            <div class="mx-auto w-64 transform overflow-hidden rounded-lg bg-white dark:bg-slate-800 shadow-md duration-300 hover:scale-105 hover:shadow-lg" id="carta-productos-propios">
+                            <div class="mx-auto w-64 transform overflow-hidden rounded-lg bg-white shadow-md duration-300 hover:scale-105 hover:shadow-lg" id="carta-productos-propios">
                                 <img class="h-40 w-full object-cover object-center" src="{{ asset('uploads/productos/' ~ producto.fotos[0]) }}" alt="" />
                                 <div class="p-4">
                                     <div class="hidden">{{ producto.uuid }}</div>
-                                    <h2 class="mb-2 text-lg font-medium dark:text-white text-gray-900">{{ producto.nombre }}</h2>
+                                    <h2 class="mb-2 text-lg font-medium text-gray-900">{{ producto.nombre }}</h2>
                                     <div class="w-full flex justify-between items-center">
-                                        <p class="my-2 text-lg font-semibold text-gray-900 dark:text-white">{{ producto.precio }} €</p>
-                                        <p class="my-2 text-sm font-semibold text-gray-500 dark:text-white">{{ producto.fabricante.nombre }}</p>
+                                        <p class="my-2 text-lg font-semibold text-gray-900">{{ producto.precio }} €</p>
+                                        <p class="my-2 text-sm font-semibold text-gray-500">{{ producto.fabricante.nombre }}</p>
                                     </div>
                                 </div>
                             </div>
