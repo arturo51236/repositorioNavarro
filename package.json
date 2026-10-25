@@ -1,8 +1,13 @@
 {
+  "name": "rubikshub",
+  "type": "module",
+  "license": "UNLICENSED",
+  "private": true,
+  "version": "1.0.0",
   "dependencies": {
-    "alpinejs": "^3.14.0",
-    "datatables.net-dt": "^2.0.8",
-    "datatables.net-responsive-dt": "^3.0.2",
-    "flowbite": "^2.3.0"
+    "alpinejs": "^3.17.5",
+    "datatables.net-dt": "^3.1.4",
+    "datatables.net-responsive-dt": "^4.1.1",
+    "flowbite": "^4.0.2"
   }
 }

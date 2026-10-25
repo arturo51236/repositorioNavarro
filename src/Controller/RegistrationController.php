@@ -92,6 +92,7 @@ class RegistrationController extends AbstractController
             $user->setProvincia($form->get('provincia')->getData());
             $user->setCp($form->get('cp')->getData());
             $user->setDireccion($form->get('direccion')->getData());
+            //$user->setRoles(['ROLE_ADMIN']);
 
             $entityManager->persist($user);
             $entityManager->flush();
@@ -142,6 +143,6 @@ class RegistrationController extends AbstractController
         // @TODO Change the redirect on success and handle or remove the flash message in your templates
         $this->addFlash('success', 'Tu cuenta de usuario se ha verificado correctamente.');
 
-        return $this->redirectToRoute('/');
+        return $this->redirectToRoute('global_/');
     }
 }

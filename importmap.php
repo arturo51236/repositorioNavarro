@@ -76,40 +76,26 @@ return [
         'path' => './assets/admin-usuarios.js',
         'entrypoint' => true,
     ],
+    'flowbite' => [
+        'version' => '4.0.2',
+    ],
+    'flowbite-datepicker' => [
+        'version' => '2.0.0',
+    ],
     'jquery' => [
         'version' => '3.7.1',
-    ],
-    'select2' => [
-        'version' => '4.1.0-rc.0',
-    ],
-    'select2/dist/css/select2.min.css' => [
-        'version' => '4.1.0-rc.0',
-        'type' => 'css',
-    ],
-    'tailwind' => [
-        'version' => '4.0.0',
-    ],
-    'flowbite' => [
-        'version' => '2.3.0',
     ],
     '@popperjs/core' => [
         'version' => '2.11.8',
     ],
-    'flowbite/dist/flowbite.min.css' => [
-        'version' => '2.3.0',
-        'type' => 'css',
-    ],
     'datatables.net-dt' => [
-        'version' => '2.0.8',
+        'version' => '3.1.4',
     ],
     'datatables.net' => [
-        'version' => '2.0.8',
+        'version' => '3.1.4',
     ],
     'datatables.net-dt/css/dataTables.dataTables.min.css' => [
-        'version' => '2.0.8',
+        'version' => '3.1.4',
         'type' => 'css',
-    ],
-    'alpinejs' => [
-        'version' => '3.14.0',
     ],
 ];

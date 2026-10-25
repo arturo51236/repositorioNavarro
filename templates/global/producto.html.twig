@@ -69,8 +69,8 @@
                                     <p class="text-gray-400 text-sm">IVA incluido</p>
                                 </div>
                             </div>
-                            <div class="flex">
-                                <div class="block text-xs uppercase text-gray-600 tracking-wide font-semibold texto-producto">Descripción</div>
+                            <div class="flex flex-col">
+                                <div class="block text-xs uppercase text-gray-600 tracking-wide font-semibold texto-producto mb-3">Descripción</div>
                                 <p class="text-gray-500 texto-producto">{{ producto.descripcion }}</p>
                             </div>
                             <div class="flex flex-col">
@@ -78,10 +78,10 @@
                                 <div class="relative">
                                     {% if app.user %}
                                         <input id="cantidad-producto" class="rounded-xl border border-gray-200 h-10 w-20 flex items-end ms-4 transpa" type="number" min="1" max="{{ producto.disponibilidad }}" value="1">
-                                        <button id="anadir-carrito" type="button" class="h-12 bg-indigo-400 text-white text-sm font-bold px-6 py-3 rounded-xl shadow hover:shadow-lg outline-none focus:outline-none my-3 ease-linear transition-all duration-150 transpa">Añadir al carrito</button>
+                                        <button id="anadir-carrito" type="button" class="h-12 bg-indigo-400 text-white text-sm font-bold px-6 py-3 rounded-xl shadow hover:shadow-lg outline-none focus:outline-none my-3 mb-7 ease-linear transition-all duration-150 transpa">Añadir al carrito</button>
                                     {% else %}
                                         <input id="cantidad-producto" class="rounded-xl border border-gray-200 h-10 w-20 flex items-end ms-4 transpa mb-5" type="number" min="1" max="{{ producto.disponibilidad }}" value="1">
-                                        <a href="{{ path('login') }}" class="h-12 bg-indigo-400 text-white text-sm font-bold px-6 py-3 rounded-xl shadow hover:shadow-lg outline-none focus:outline-none my-3 ease-linear transition-all duration-150 transpa">Añadir al carrito</a>
+                                        <a href="{{ path('login') }}" class="h-12 bg-indigo-400 text-white text-sm font-bold px-6 py-3 rounded-xl shadow hover:shadow-lg outline-none focus:outline-none my-3 mb-7 ease-linear transition-all duration-150 transpa">Añadir al carrito</a>
                                     {% endif %}
                                 </div>
                             </div>

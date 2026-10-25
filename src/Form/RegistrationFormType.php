@@ -30,10 +30,10 @@ class RegistrationFormType extends AbstractType
                 'required' => false,
                 'trim' => true,
                 'constraints' => [
-                    new Length([
-                        'max' => 50,
-                        'maxMessage' => 'No puedes superar los 50 caracteres.',
-                    ]),
+                    new Length(
+                        max: 50,
+                        maxMessage: 'No puedes superar los 50 caracteres.',
+                    ),
                     new Callback([
                         $this, 'validar_nombre_apellidos_registro',
                     ]),
@@ -43,10 +43,10 @@ class RegistrationFormType extends AbstractType
                 'required' => false,
                 'trim' => true,
                 'constraints' => [
-                    new Length([
-                        'max' => 100,
-                        'maxMessage' => 'No puedes superar los 100 caracteres.',
-                    ]),
+                    new Length(
+                        max: 100,
+                        maxMessage: 'No puedes superar los 100 caracteres.',
+                    ),
                     new Callback([
                         $this, 'validar_nombre_apellidos_registro',
                     ]),
@@ -55,14 +55,14 @@ class RegistrationFormType extends AbstractType
             ->add('dni', TextType::class, [
                 'required' => true,
                 'constraints' => [
-                    new NotBlank([
-                        'message' => 'Por favor, introduce tu Dni.',
-                    ]),
-                    new Length([
-                        'min' => 9,
-                        'max' => 9,
-                        'exactMessage' => 'El dni debe ser de 9 caracteres.',
-                    ]),
+                    new NotBlank(
+                        message: 'Por favor, introduce tu Dni.',
+                    ),
+                    new Length(
+                        min: 9,
+                        max: 9,
+                        exactMessage: 'El dni debe ser de 9 caracteres.',
+                    ),
                     new Callback([
                         $this, 'validar_dni_registro',
                     ]),
@@ -82,19 +82,19 @@ class RegistrationFormType extends AbstractType
                 'required' => false,
                 'trim' => true,
                 'constraints' => [
-                    new Length([
-                        'max' => 100,
-                        'maxMessage' => 'No puedes superar los 100 caracteres.',
-                    ]),
+                    new Length(
+                        max: 100,
+                        maxMessage: 'No puedes superar los 100 caracteres.',
+                    ),
                 ]
             ])
             ->add('email', EmailType::class, [
                 'required' => true,
                 'trim' => true,
                 'constraints' => [
-                    new NotBlank([
-                        'message' => 'Por favor, introduce tu email.',
-                    ]),
+                    new NotBlank(
+                        message: 'Por favor, introduce tu email.',
+                    ),
                 ],
             ])
             ->add('password', PasswordType::class, [
@@ -103,38 +103,38 @@ class RegistrationFormType extends AbstractType
                 'required' => true,
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
-                    new NotBlank([
-                        'message' => 'Por favor, introduce una contraseña.',
-                    ]),
-                    new Length([
-                        'min' => 8,
-                        'minMessage' => 'Tu contraseña debe de tener al menos {{ limit }} caracteres.',
+                    new NotBlank(
+                        message: 'Por favor, introduce una contraseña.',
+                    ),
+                    new Length(
+                        min: 8,
+                        minMessage: 'Tu contraseña debe de tener al menos {{ limit }} caracteres.',
                         // max length allowed by Symfony for security reasons
-                        'max' => 4096,
-                    ]),
+                        max: 4096,
+                    ),
                 ],
             ])
             ->add('foto', FileType::class, [
                 'required' => false,
                 'constraints' => [
-                    new File([
-                        'maxSize' => '3072k',
-                        'maxSizeMessage' => 'La foto introducida supera el limite de tamaño (6mb).',
-                        'mimeTypes' => [
+                    new File(
+                        maxSize: '3072k',
+                        maxSizeMessage: 'La foto introducida supera el limite de tamaño (6mb).',
+                        mimeTypes: [
                             'image/jpeg',
                             'image/jpg',
                             'image/png',
                         ],
-                        'mimeTypesMessage' => 'Por favor, sube un fichero válido (JPG, JPEG o PNG).',
-                    ]),
+                        mimeTypesMessage: 'Por favor, sube un fichero válido (JPG, JPEG o PNG).',
+                    ),
                 ],
             ])
             ->add('aceptarTerminosCondiciones', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
-                    new IsTrue([
-                        'message' => 'Debes de aceptar nuestros términos y condiciones.',
-                    ]),
+                    new IsTrue(
+                        message: 'Debes de aceptar nuestros términos y condiciones.',
+                    ),
                 ],
             ])
         ;

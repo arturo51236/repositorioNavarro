@@ -1,14 +1,9 @@
-
-###> symfony/framework-bundle ###
-.env.local
-.env.local.php
-.env.*.local
-config/secrets/prod/prod.decrypt.private.php
 assets/vendor/
-public/bundles/
-public/uploads/
+config/secrets/prod/prod.decrypt.private.php
+config/secrets/dev/dev.decrypt.private.php
+migrations/
+node_modules/
+public/
+!public/static/
 var/
 vendor/
-node_modules/
-migrations/
-###< symfony/framework-bundle ###
