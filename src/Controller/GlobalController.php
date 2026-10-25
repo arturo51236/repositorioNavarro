@@ -75,14 +75,6 @@ class GlobalController extends AbstractController
         ]);
     }
 
-    #[Route('/global/sobre_nosotros', name: 'global_sobre_nosotros')]
-    public function global_sobre_nosotros(SerializerInterface $serializer): Response
-    {
-        return $this->render('global/sobre_nosotros.html.twig', [
-            'controller_name' => 'GlobalController',
-        ]);
-    }
-
     #[Route('/global/fabricantes', name: 'global_fabricantes')]
     public function global_fabricantes(SerializerInterface $serializer): Response
     {

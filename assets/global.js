@@ -162,30 +162,6 @@ function toggleTransparency() {
         });
     }
 
-    let cartaFoto = document.getElementById('carta-foto');
-    if (cartaFoto) {
-        cartaFoto.classList.toggle('transparent');
-
-        const fotosIconosCarta = document.querySelectorAll('.fotos-iconos-carta');
-
-        fotosIconosCarta.forEach(icon => {
-            icon.classList.toggle('transparent');
-        });
-
-        const sobreNosotrosTexto1 = document.querySelectorAll('.sobre-nosotros-texto-1');
-
-        sobreNosotrosTexto1.forEach(text => {
-            text.classList.toggle('text-gray-200/40');
-        });
-
-        const sobreNosotrosTexto2 = document.querySelectorAll('.sobre-nosotros-texto-2');
-
-        sobreNosotrosTexto2.forEach(text => {
-            text.classList.toggle('text-indigo-500');
-            text.classList.toggle('text-gray-400/60');
-        });
-    }
-
     if (main.parentElement.classList.contains('first-room-main')) {
         main.children[0].classList.toggle('transparent');
 
